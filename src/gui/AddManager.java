@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
+import java.io.Serializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -11,13 +12,7 @@ import java.util.ResourceBundle;
  * Sample Skeleton for 'AddManager.fxml' Controller Class
  */
 
-public class AddManager {
-    MainClass mainClass;
-
-    public AddManager() {
-        mainClass = MainClass.getMainClass();
-    }
-
+public class AddManager implements Serializable {
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
 
@@ -38,8 +33,13 @@ public class AddManager {
 
     @FXML
     void OK_Click(ActionEvent event) {
-        mainClass.addManager(FirstnameText.getText(), LastnameText.getText(),
+        MainClass.getMainClass().addManager(FirstnameText.getText(), LastnameText.getText(),
                 UsernameText.getText(), PasswordText.getText());
+        try {
+            MainClass.getMainClass().changescene("FirstPage.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -49,6 +49,5 @@ public class AddManager {
         assert LastnameText != null : "gui:id=\"LastnameText\" was not injected: check your FXML file 'AddManager.fxml'.";
         assert PasswordText != null : "gui:id=\"PasswordText\" was not injected: check your FXML file 'AddManager.fxml'.";
         assert UsernameText != null : "gui:id=\"UsernameText\" was not injected: check your FXML file 'AddManager.fxml'.";
-
     }
 }

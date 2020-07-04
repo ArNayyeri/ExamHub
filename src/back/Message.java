@@ -1,8 +1,9 @@
 package back;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
-public class Message {
+public class Message implements Serializable {
     private String text;
     private final User user;
     private final Calendar calendar;

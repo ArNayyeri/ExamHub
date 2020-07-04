@@ -8,16 +8,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+import java.io.Serializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ManagerLogin {
-    MainClass mainClass;
-
-    public ManagerLogin() {
-        this.mainClass = MainClass.getMainClass();
-    }
-
+public class ManagerLogin implements Serializable {
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
 
@@ -35,7 +30,7 @@ public class ManagerLogin {
 
     @FXML
     void OK_Click(ActionEvent event) {
-        Manager manager = mainClass.loginManager(usernametext.getText(), passwordtext.getText());
+        Manager manager = MainClass.getMainClass().loginManager(usernametext.getText(), passwordtext.getText());
     }
 
     @FXML

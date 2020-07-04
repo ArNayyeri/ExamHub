@@ -8,16 +8,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+import java.io.Serializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class StudentLogin {
-    MainClass mainClass;
-
-    public StudentLogin() {
-        this.mainClass = MainClass.getMainClass();
-    }
-
+public class StudentLogin implements Serializable {
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
 
@@ -35,7 +30,7 @@ public class StudentLogin {
 
     @FXML
     void OK_Click(ActionEvent event) {
-        Student student = mainClass.loginStudent(usernametext.getText(), passwordtext.getText());
+        Student student = MainClass.getMainClass().loginStudent(usernametext.getText(), passwordtext.getText());
     }
 
     @FXML

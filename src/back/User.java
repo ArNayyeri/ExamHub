@@ -1,8 +1,9 @@
 package back;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public abstract class User {
+public abstract class User implements Serializable {
     static private ArrayList<User> users = new ArrayList<>();
     private String firstname;
     private String lastname;

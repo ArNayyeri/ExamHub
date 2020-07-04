@@ -1,4 +1,6 @@
 package back;
 
-public class Question {
+import java.io.Serializable;
+
+public class Question implements Serializable {
 }

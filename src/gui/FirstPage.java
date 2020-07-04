@@ -5,15 +5,11 @@ package gui; /**
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
+import java.io.Serializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class FirstPage {
-    private MainClass mainClass;
-
-    public FirstPage() {
-        mainClass = MainClass.getMainClass();
-    }
+public class FirstPage implements Serializable {
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
@@ -24,7 +20,7 @@ public class FirstPage {
     @FXML
     void Login_Manager(ActionEvent event) {
         try {
-            mainClass.changestage("ManagerLogin.fxml");
+            MainClass.getMainClass().changescene("ManagerLogin.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -33,7 +29,7 @@ public class FirstPage {
     @FXML
     void Login_Student(ActionEvent event) {
         try {
-            mainClass.changestage("StudentLogin.fxml");
+            MainClass.getMainClass().changescene("StudentLogin.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -42,7 +38,7 @@ public class FirstPage {
     @FXML
     void SignUp_Manager(ActionEvent event) {
         try {
-            mainClass.changestage("AddManager.fxml");
+            MainClass.getMainClass().changescene("AddManager.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -51,7 +47,7 @@ public class FirstPage {
     @FXML
     void SignUp_Student(ActionEvent event) {
         try {
-            mainClass.changestage("AddStudent.fxml");
+            MainClass.getMainClass().changescene("AddStudent.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }

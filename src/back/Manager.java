@@ -5,15 +5,13 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
+import java.util.Objects;
 
-public class Manager extends User {
+public class Manager extends User implements Serializable {
     private ArrayList<ExamManager> examManagers = new ArrayList<>();
 
     public ArrayList<ExamManager> getExamManagers() {
@@ -130,5 +128,13 @@ public class Manager extends User {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Manager)) return false;
+        Manager manager = (Manager) o;
+        return manager.getUsername().equals(getUsername());
     }
 }

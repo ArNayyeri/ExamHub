@@ -1,9 +1,10 @@
 package back;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class ExamStudent {
+public class ExamStudent implements Serializable {
     private Chat chat = new Chat();
     private String name;
     private Manager manager;

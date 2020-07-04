@@ -6,15 +6,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
+import java.io.Serializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AddStudent {
-    MainClass mainClass;
-
-    public AddStudent() {
-        mainClass = MainClass.getMainClass();
-    }
+public class AddStudent implements Serializable {
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
@@ -39,10 +35,10 @@ public class AddStudent {
 
     @FXML
     void OK_Click(ActionEvent event) {
-        mainClass.addStudent(FirstnameText.getText(), LastnameText.getText(),
+        MainClass.getMainClass().addStudent(FirstnameText.getText(), LastnameText.getText(),
                 UsernameText.getText(), PasswordText.getText(), IDText.getText());
         try {
-            mainClass.changestage("FirstPage.fxml");
+            MainClass.getMainClass().changescene("FirstPage.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
