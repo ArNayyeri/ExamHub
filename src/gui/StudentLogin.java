@@ -6,6 +6,7 @@ import back.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import java.io.Serializable;
@@ -19,14 +20,14 @@ public class StudentLogin implements Serializable {
     @FXML // URL location of the FXML file that was given to the FXMLLoader
     private URL location;
 
-    @FXML // gui:id="usernametext"
+    @FXML // fx:id="usernametext"
     private TextField usernametext; // Value injected by FXMLLoader
 
-    @FXML // gui:id="passwordtext"
-    private TextField passwordtext; // Value injected by FXMLLoader
-
-    @FXML // gui:id="OK"
+    @FXML // fx:id="OK"
     private Button OK; // Value injected by FXMLLoader
+
+    @FXML // fx:id="passwordtext"
+    private PasswordField passwordtext; // Value injected by FXMLLoader
 
     @FXML
     void OK_Click(ActionEvent event) {

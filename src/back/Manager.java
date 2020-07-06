@@ -1,5 +1,7 @@
 package back;
 
+import gui.MainClass;
+import gui.MyExamsManager;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -7,9 +9,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Date;
 import java.util.Iterator;
-import java.util.Objects;
 
 public class Manager extends User implements Serializable {
     private ArrayList<ExamManager> examManagers = new ArrayList<>();
@@ -22,8 +23,9 @@ public class Manager extends User implements Serializable {
         super(firstname, lastname, username, password);
     }
 
-    public void addExam(String name, String pathexcel, Calendar start, Calendar end) {
+    public ExamManager addExam(String name, String pathexcel, Date start, Date end, boolean consecutive) {
         ExamManager examManager = new ExamManager(name, this, start, end);
+        examManager.setConsecutive(consecutive);
         getExamManagers().add(examManager);
         try {
             XSSFWorkbook wb = new XSSFWorkbook(new FileInputStream(new File(pathexcel)));
@@ -31,9 +33,10 @@ public class Manager extends User implements Serializable {
             for (Row row : sheet) {
                 String[] NewStudent = readexcel(row, pathexcel);
                 Student student;
-                if (User.getUser(NewStudent[0]) == null)
+                if (User.getUser(NewStudent[0]) == null) {
                     student = new Student(NewStudent[1], NewStudent[2], NewStudent[0], NewStudent[0], NewStudent[0]);
-                else
+                    MainClass.getMainClass().students.add(student);
+                } else
                     student = (Student) User.getUser(NewStudent[0]);
                 ExamStudent examStudent = new ExamStudent(examManager, student);
                 examManager.getStudents().add(student);
@@ -43,11 +46,17 @@ public class Manager extends User implements Serializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return examManager;
     }
 
-    public void addExam(String name, String id, String firstname, String lastname, Calendar start, Calendar end) {
+    public ExamManager addExam(String name, Date start, Date end,boolean consecutive) {
         ExamManager examManager = new ExamManager(name, this, start, end);
+        examManager.setConsecutive(consecutive);
         getExamManagers().add(examManager);
+        return examManager;
+    }
+
+    public void addStudentExam(ExamManager examManager, String id, String firstname, String lastname) {
         Student student;
         if (User.getUser(id) == null)
             student = new Student(firstname, lastname, id, id, id);
@@ -57,6 +66,10 @@ public class Manager extends User implements Serializable {
         examManager.getStudents().add(student);
         examManager.getExamStudents().add(examStudent);
         student.getExamStudents().add(examStudent);
+        Object o[] = new Object[2];
+        o[0] = examManager;
+        o[1] = student;
+        MainClass.getMainClass().data.save("Add Student Exam", o);
     }
 
     public String[] readexcel(Row vrow, String path) {
@@ -84,47 +97,46 @@ public class Manager extends User implements Serializable {
     }
 
     public void averageexcel() {
+        XSSFWorkbook workbook = new XSSFWorkbook();
+        XSSFSheet sheet = workbook.createSheet();
         int n = 0;
         for (ExamManager examManager : examManagers) {
             if (examManager.getAverage() != -1) {
-                writeexcel(examManager.getName(), examManager.getAverage(), n);
+                Row row = sheet.createRow(n);
+                Cell cell = row.createCell(0);
+                cell.setCellValue(examManager.getName());
+                cell = row.createCell(1);
+                cell.setCellValue(examManager.getAverage());
                 n++;
             }
+        }
+        try {
+            FileOutputStream FOS = new FileOutputStream("excel.xlsx");
+            workbook.write(FOS);
+            FOS.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
     public void examexcel(ExamManager examManager) {
+        XSSFWorkbook workbook = new XSSFWorkbook();
+        XSSFSheet sheet = workbook.createSheet();
         int n = 0;
         for (ExamStudent examStudent : examManager.getExamStudents()) {
             if (examStudent.getGrade() != -1) {
-                writeexcel(examManager.getName(), examStudent.getGrade(), n);
+                Row row = sheet.createRow(n);
+                Cell cell = row.createCell(0);
+                cell.setCellValue(examManager.getName());
+                cell = row.createCell(1);
+                cell.setCellValue(examStudent.getGrade());
                 n++;
             }
         }
-    }
-
-    public void writeexcel(Object first, Object second, int vrow) {
-        XSSFWorkbook workbook = new XSSFWorkbook();
-        XSSFSheet sheet = workbook.createSheet("excel");
-        Row row = sheet.createRow(vrow);
-        Cell cell = row.createCell(0);
-        if (first instanceof String)
-            cell.setCellValue((String) first);
-        else if (first instanceof Double)
-            cell.setCellValue((Double) first);
-        else if (first instanceof Integer)
-            cell.setCellValue((Integer) first);
-
-        cell = row.createCell(1);
-        if (second instanceof String)
-            cell.setCellValue((String) second);
-        else if (second instanceof Double)
-            cell.setCellValue((Double) second);
-        else if (second instanceof Integer)
-            cell.setCellValue((Integer) second);
-
-        try (FileOutputStream FOS = new FileOutputStream("excel.xlsx")) {
+        try {
+            FileOutputStream FOS = new FileOutputStream("excel.xlsx");
             workbook.write(FOS);
+            FOS.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

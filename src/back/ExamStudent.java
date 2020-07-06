@@ -2,18 +2,36 @@ package back;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Date;
 
 public class ExamStudent implements Serializable {
-    private Chat chat = new Chat();
+    private Chat chat;
     private String name;
     private Manager manager;
     private Student student;
-    private Calendar start;
-    private Calendar end;
+    private Date start;
+    private Date end;
+    private ExamManager examManager;
     private ArrayList<Question> questions = new ArrayList<>();
     private ArrayList<Answer> answers = new ArrayList<>();
-    private double grade = -1;
+    private boolean consecutive = true;
+    private boolean access = true;
+
+    public boolean isAccess() {
+        return access;
+    }
+
+    public void setAccess(boolean access) {
+        this.access = access;
+    }
+
+    public boolean isConsecutive() {
+        return consecutive;
+    }
+
+    public void setConsecutive(boolean consecutive) {
+        this.consecutive = consecutive;
+    }
 
     public Chat getChat() {
         return chat;
@@ -27,19 +45,15 @@ public class ExamStudent implements Serializable {
         return manager;
     }
 
-    public ArrayList<Answer> getAnswers() {
-        return answers;
-    }
-
     public Student getStudent() {
         return student;
     }
 
-    public Calendar getStart() {
+    public Date getStart() {
         return start;
     }
 
-    public Calendar getEnd() {
+    public Date getEnd() {
         return end;
     }
 
@@ -48,14 +62,29 @@ public class ExamStudent implements Serializable {
     }
 
     public double getGrade() {
-        return grade;
+        int n = 0;
+        double S = 0;
+        for (Answer answer : answers) {
+            if (answer.getGrade() < 0)
+                n++;
+            else
+                S += answer.getGrade();
+        }
+        if (n == answers.size())
+            return -1;
+        return S;
     }
 
-    public void setGrade(double grade) {
-        this.grade = grade;
+    public void setManager(Manager manager) {
+        this.manager = manager;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
     public ExamStudent(ExamManager examManager, Student student) {
+        this.examManager = examManager;
         this.name = examManager.getName();
         this.manager = examManager.getManager();
         this.student = student;
@@ -63,5 +92,6 @@ public class ExamStudent implements Serializable {
         this.end = examManager.getEnd();
         this.chat = examManager.getChat();
         this.questions = examManager.getQuestions();
+        this.consecutive = examManager.isConsecutive();
     }
 }

@@ -11,12 +11,10 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class MainClass extends Application implements Serializable {
-    Data data = new Data();
-    ArrayList<Manager> managers = new ArrayList<>();
-    ArrayList<Student> students = new ArrayList<>();
+    public Data data = new Data();
+    public ArrayList<Manager> managers = new ArrayList<>();
+    public ArrayList<Student> students = new ArrayList<>();
     static MainClass mainClass;
-    ArrayList<String> scenesname = new ArrayList<>();
-    ArrayList<Scene> scenes = new ArrayList<>();
     Scene scene;
     Stage stage;
 
@@ -24,7 +22,9 @@ public class MainClass extends Application implements Serializable {
         if (User.getUser(username) == null) {
             Student student = new Student(firstname, lastname, username, password, id);
             students.add(student);
-            data.save("New Student", student);
+            Object o[] = new Object[1];
+            o[0] =  student;
+            data.save("New Student", o);
         } else {
             System.out.println("RIDIIIIIIIIIII:)");
         }
@@ -33,9 +33,11 @@ public class MainClass extends Application implements Serializable {
 
     public void addManager(String firstname, String lastname, String username, String password) {
         if (User.getUser(username) == null) {
-            Manager manager=new Manager(firstname, lastname, username, password);
+            Manager manager = new Manager(firstname, lastname, username, password);
             managers.add(manager);
-            data.save("New Manager",manager);
+            Object o[] = new Object[1];
+            o[0] =  manager;
+            data.save("New Manager", o);
         } else {
             System.out.println("RIDIIIIIIIIIII:)");
         }
@@ -86,13 +88,11 @@ public class MainClass extends Application implements Serializable {
             }
         }
         data.start();
-        scenesname.add("FirstPage.fxml");
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("FirstPage.fxml"));
         Parent root = fxmlLoader.load();
         stage.setTitle("ExamHub");
         scene = new Scene(root);
-        scenes.add(scene);
         stage.setScene(scene);
         this.stage = stage;
         stage.show();
@@ -103,26 +103,12 @@ public class MainClass extends Application implements Serializable {
     }
 
     public void changescene(String name) throws Exception {
-        if (sceneCreated(name) != null)
-            scene = sceneCreated(name);
-        else {
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource(name));
-            Parent root = fxmlLoader.load();
-            scene = new Scene(root);
-            scenes.add(scene);
-            scenesname.add(name);
-        }
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource(name));
+        Parent root = fxmlLoader.load();
+        scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-    }
-
-    private Scene sceneCreated(String name) {
-        for (String i : scenesname)
-            if (i.equals(name)) {
-                return scenes.get(scenesname.indexOf(name));
-            }
-        return null;
     }
 
     public static MainClass getMainClass() {

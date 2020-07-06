@@ -1,17 +1,17 @@
 package back;
 
 import java.io.Serializable;
-import java.util.Calendar;
+import java.util.Date;
 
 public class Message implements Serializable {
     private String text;
     private final User user;
-    private final Calendar calendar;
+    private final Date date;
 
-    public Message(String text, User user, Calendar calendar) {
+    public Message(String text, User user, Date date) {
         this.text = text;
         this.user = user;
-        this.calendar = calendar;
+        this.date = date;
     }
 
     public String getText() {
@@ -22,10 +22,7 @@ public class Message implements Serializable {
         return user;
     }
 
-    public Calendar getCalendar() {
-        return calendar;
-    }
-    public static void abc(){
-        System.out.println("aaa");
+    public Date getDate() {
+        return date;
     }
 }

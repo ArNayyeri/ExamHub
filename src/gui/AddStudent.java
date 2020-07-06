@@ -4,6 +4,7 @@ package gui; /**
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import java.io.Serializable;
@@ -24,8 +25,8 @@ public class AddStudent implements Serializable {
     @FXML // gui:id="LastnameText"
     private TextField LastnameText; // Value injected by FXMLLoader
 
-    @FXML // gui:id="PasswordText"
-    private TextField PasswordText; // Value injected by FXMLLoader
+    @FXML // fx:id="PasswordText"
+    private PasswordField PasswordText; // Value injected by FXMLLoader
 
     @FXML // gui:id="UsernameText"
     private TextField UsernameText; // Value injected by FXMLLoader

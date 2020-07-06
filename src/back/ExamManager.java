@@ -2,17 +2,28 @@ package back;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Date;
 
 public class ExamManager implements Serializable {
     private Chat chat = new Chat();
     private String name;
     private Manager manager;
     private ArrayList<Student> students = new ArrayList<>();
-    private Calendar start;
-    private Calendar end;
+    private Date start;
+    private Date end;
     private ArrayList<Question> questions = new ArrayList<>();
     private ArrayList<ExamStudent> examStudents = new ArrayList<>();
+    private boolean consecutive = true;
+
+    public boolean isConsecutive() {
+        return consecutive;
+    }
+
+    public void setConsecutive(boolean consecutive) {
+        this.consecutive = consecutive;
+        for (ExamStudent examStudent : examStudents)
+            examStudent.setConsecutive(consecutive);
+    }
 
     public Chat getChat() {
         return chat;
@@ -34,16 +45,28 @@ public class ExamManager implements Serializable {
         return students;
     }
 
-    public Calendar getStart() {
+    public Date getStart() {
         return start;
     }
 
-    public Calendar getEnd() {
+    public Date getEnd() {
         return end;
     }
 
     public ArrayList<Question> getQuestions() {
         return questions;
+    }
+
+    public void setManager(Manager manager) {
+        this.manager = manager;
+    }
+
+    public void setStudents(ArrayList<Student> students) {
+        this.students = students;
+    }
+
+    public void setExamStudents(ArrayList<ExamStudent> examStudents) {
+        this.examStudents = examStudents;
     }
 
     public double getAverage() {
@@ -57,7 +80,7 @@ public class ExamManager implements Serializable {
         return average;
     }
 
-    public ExamManager(String name, Manager manager, Calendar start, Calendar end) {
+    public ExamManager(String name, Manager manager, Date start, Date end) {
         this.name = name;
         this.manager = manager;
         this.start = start;
