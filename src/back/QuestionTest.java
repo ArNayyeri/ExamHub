@@ -1,6 +1,8 @@
 package back;
 
-public class QuestionTest extends Question {
+import java.io.Serializable;
+
+public class QuestionTest extends Question implements Serializable {
     private String[] options = new String[4];
     private byte correct;
 

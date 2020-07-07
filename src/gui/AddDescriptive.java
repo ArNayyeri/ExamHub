@@ -39,7 +39,7 @@ public class AddDescriptive {
             o[1] = ManagerLogin.manager.getExamManagers().indexOf(MyExamsManager.examManager);
             o[2] = MyExamsManager.examManager.getQuestions().indexOf(questionDescriptive);
             o[3] = questionDescriptive;
-            MainClass.getMainClass().data.save("Edit Add Descriptive", o);
+            MainClass.getMainClass().data.save("Edit Question", o);
             try {
                 MainClass.getMainClass().changescene("EditQuestion.fxml");
             } catch (Exception e) {
@@ -53,7 +53,7 @@ public class AddDescriptive {
             o[0] = ManagerLogin.manager;
             o[1] = ManagerLogin.manager.getExamManagers().indexOf(MyExamsManager.examManager);
             o[2] = questionDescriptive;
-            MainClass.getMainClass().data.save("New Add Descriptive", o);
+            MainClass.getMainClass().data.save("New Add Question", o);
             try {
                 MainClass.getMainClass().changescene("AddQuestion.fxml");
             } catch (Exception e) {

@@ -73,6 +73,21 @@ public class ManagerExam {
     }
 
     @FXML
+    void correction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void excel(ActionEvent event) {
+
+    }
+
+    @FXML
+    void graph(ActionEvent event) {
+
+    }
+
+    @FXML
         // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
 

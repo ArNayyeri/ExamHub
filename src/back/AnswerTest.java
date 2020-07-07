@@ -1,6 +1,8 @@
 package back;
 
-public class AnswerTest extends Answer {
+import java.io.Serializable;
+
+public class AnswerTest extends Answer implements Serializable {
     private byte answer;
 
     public byte getAnswer() {

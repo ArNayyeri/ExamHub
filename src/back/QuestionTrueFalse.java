@@ -1,6 +1,8 @@
 package back;
 
-public class QuestionTrueFalse extends Question {
+import java.io.Serializable;
+
+public class QuestionTrueFalse extends Question implements Serializable {
     private boolean correct;
 
     public boolean isCorrect() {

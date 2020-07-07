@@ -1,8 +1,9 @@
 package back;
 
 import java.io.File;
+import java.io.Serializable;
 
-public class AnswerDescriptive extends Answer {
+public class AnswerDescriptive extends Answer implements Serializable {
     private File file;
 
     public AnswerDescriptive(Question question, File file) {

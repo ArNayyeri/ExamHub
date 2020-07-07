@@ -57,56 +57,22 @@ public class Data extends Thread implements Serializable {
                             examManager1.getExamStudents().add(examStudent);
                             student1.getExamStudents().add(examStudent);
                             break;
-                        case "New Add Test":
+                        case "New Add Question":
                             Manager manager2 = (Manager) o.readObject();
                             int i = (int) o.readObject();
                             manager = (Manager) User.getUser(manager2.getUsername());
                             examManager = manager.getExamManagers().get(i);
-                            QuestionTest question = (QuestionTest) o.readObject();
+                            Question question = (Question) o.readObject();
                             examManager.getQuestions().add(question);
                             break;
-                        case "New Add Descriptive":
-                            manager2 = (Manager) o.readObject();
-                            i = (int) o.readObject();
-                            manager = (Manager) User.getUser(manager2.getUsername());
-                            examManager = manager.getExamManagers().get(i);
-                            QuestionDescriptive question1 = (QuestionDescriptive) o.readObject();
-                            examManager.getQuestions().add(question1);
-                            break;
-                        case "New Add True False":
-                            manager2 = (Manager) o.readObject();
-                            i = (int) o.readObject();
-                            manager = (Manager) User.getUser(manager2.getUsername());
-                            examManager = manager.getExamManagers().get(i);
-                            QuestionTrueFalse question2 = (QuestionTrueFalse) o.readObject();
-                            examManager.getQuestions().add(question2);
-                            break;
-                        case "Edit Add Test":
+                        case "Edit Question":
                             manager2 = (Manager) o.readObject();
                             i = (int) o.readObject();
                             int j = (int) o.readObject();
                             manager = (Manager) User.getUser(manager2.getUsername());
                             examManager = manager.getExamManagers().get(i);
-                            question = (QuestionTest) o.readObject();
+                            question = (Question) o.readObject();
                             examManager.getQuestions().set(j, question);
-                            break;
-                        case "Edit Add True False":
-                            manager2 = (Manager) o.readObject();
-                            i = (int) o.readObject();
-                            j = (int) o.readObject();
-                            manager = (Manager) User.getUser(manager2.getUsername());
-                            examManager = manager.getExamManagers().get(i);
-                            question2 = (QuestionTrueFalse) o.readObject();
-                            examManager.getQuestions().set(j, question2);
-                            break;
-                        case "Edit Add Descriptive":
-                            manager2 = (Manager) o.readObject();
-                            i = (int) o.readObject();
-                            j = (int) o.readObject();
-                            manager = (Manager) User.getUser(manager2.getUsername());
-                            examManager = manager.getExamManagers().get(i);
-                            question1 = (QuestionDescriptive) o.readObject();
-                            examManager.getQuestions().set(j, question1);
                             break;
                         case "Edit Access":
                             student = (Student) o.readObject();
@@ -122,7 +88,7 @@ public class Data extends Thread implements Serializable {
                             manager1.getExamManagers().set(i, examManager);
                             examManager.setManager(manager1);
                             j = 0;
-                            int y[]= (int[]) o.readObject();
+                            int y[] = (int[]) o.readObject();
                             for (ExamStudent examStudent2 : examManager.getExamStudents()) {
                                 student1 = (Student) User.getUser(examStudent2.getStudent().getUsername());
                                 student1.getExamStudents().set(y[j], examStudent2);
@@ -147,12 +113,7 @@ public class Data extends Thread implements Serializable {
         try {
             FileOutputStream f = new FileOutputStream(new File("Database.txt"));
             ObjectOutputStream o = new ObjectOutputStream(f);
-            o.write(MainClass.mainClass.managers.size());
-            for (Manager manager : MainClass.mainClass.managers)
-                o.writeObject(manager);
-            o.write(MainClass.mainClass.students.size());
-            for (Student student : MainClass.mainClass.students)
-                o.writeObject(student);
+            o.writeObject(MainClass.mainClass.save);
             o.close();
             f.close();
             File file = new File("NewSave.txt");

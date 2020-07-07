@@ -60,7 +60,7 @@ public class AddTest {
             o[1]=ManagerLogin.manager.getExamManagers().indexOf(MyExamsManager.examManager);
             o[2]=MyExamsManager.examManager.getQuestions().indexOf(questionTest);
             o[3]=questionTest;
-            MainClass.getMainClass().data.save("Edit Add Test",o);
+            MainClass.getMainClass().data.save("Edit Question",o);
             try {
                 MainClass.getMainClass().changescene("EditQuestion.fxml");
             } catch (Exception e) {
@@ -74,7 +74,7 @@ public class AddTest {
             o[0] = ManagerLogin.manager;
             o[1] = ManagerLogin.manager.getExamManagers().indexOf(MyExamsManager.examManager);
             o[2] = questionTest;
-            MainClass.getMainClass().data.save("New Add Test",o);
+            MainClass.getMainClass().data.save("New Add Question",o);
             try {
                 MainClass.getMainClass().changescene("AddQuestion.fxml");
             } catch (Exception e) {

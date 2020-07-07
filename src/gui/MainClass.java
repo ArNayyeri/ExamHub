@@ -10,11 +10,12 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.util.ArrayList;
 
-public class MainClass extends Application implements Serializable {
+public class MainClass extends Application{
     public Data data = new Data();
     public ArrayList<Manager> managers = new ArrayList<>();
     public ArrayList<Student> students = new ArrayList<>();
     static MainClass mainClass;
+    Save save;
     Scene scene;
     Stage stage;
 
@@ -23,7 +24,7 @@ public class MainClass extends Application implements Serializable {
             Student student = new Student(firstname, lastname, username, password, id);
             students.add(student);
             Object o[] = new Object[1];
-            o[0] =  student;
+            o[0] = student;
             data.save("New Student", o);
         } else {
             System.out.println("RIDIIIIIIIIIII:)");
@@ -36,7 +37,7 @@ public class MainClass extends Application implements Serializable {
             Manager manager = new Manager(firstname, lastname, username, password);
             managers.add(manager);
             Object o[] = new Object[1];
-            o[0] =  manager;
+            o[0] = manager;
             data.save("New Manager", o);
         } else {
             System.out.println("RIDIIIIIIIIIII:)");
@@ -69,15 +70,12 @@ public class MainClass extends Application implements Serializable {
             try {
                 FileInputStream f = new FileInputStream(new File("Database.txt"));
                 ObjectInputStream o = new ObjectInputStream(f);
-                int n = o.read();
-                for (int i = 0; i < n; i++) {
-                    Manager manager = (Manager) o.readObject();
+                Save save = (Save) o.readObject();
+                for (Manager manager : save.managers) {
                     MainClass.mainClass.managers.add(manager);
                     User.getUsers().add(manager);
                 }
-                n = o.read();
-                for (int i = 0; i < n; i++) {
-                    Student student = (Student) o.readObject();
+                for (Student student : save.students) {
                     MainClass.mainClass.students.add(student);
                     User.getUsers().add(student);
                 }
@@ -87,6 +85,7 @@ public class MainClass extends Application implements Serializable {
                 e.printStackTrace();
             }
         }
+        save = new Save(managers, students);
         data.start();
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("FirstPage.fxml"));

@@ -9,7 +9,6 @@ import java.net.URL;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -65,6 +64,9 @@ public class CreateExam {
     private RadioButton consecutive;
 
     @FXML
+    private RadioButton random;
+
+    @FXML
     void Choose_File(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Excel File");
@@ -106,11 +108,12 @@ public class CreateExam {
             if (file != null && ExcelRadio.isSelected()) {
                 Object o[] = new Object[1];
                 o[0] = ManagerLogin.manager.addExam(nameText.getText(), file.getPath(), datestart, dateend,
-                        consecutive.isSelected());
+                        consecutive.isSelected(), random.isSelected());
                 MainClass.getMainClass().data.save("Add Exam", o);
             } else {
                 Object o[] = new Object[1];
-                o[0] = ManagerLogin.manager.addExam(nameText.getText(), datestart, dateend, consecutive.isSelected());
+                o[0] = ManagerLogin.manager.addExam(nameText.getText(), datestart, dateend
+                        , consecutive.isSelected(), random.isSelected());
                 MainClass.getMainClass().data.save("Add Exam", o);
             }
         }
@@ -153,6 +156,7 @@ public class CreateExam {
             EndM.setText(String.valueOf(MyExamsManager.examManager.getEnd().getMinutes()));
             EndS.setText(String.valueOf(MyExamsManager.examManager.getEnd().getSeconds()));
             consecutive.setSelected(MyExamsManager.examManager.isConsecutive());
+            random.setSelected(MyExamsManager.examManager.isRandom());
         }
     }
 }

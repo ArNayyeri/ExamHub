@@ -23,9 +23,11 @@ public class Manager extends User implements Serializable {
         super(firstname, lastname, username, password);
     }
 
-    public ExamManager addExam(String name, String pathexcel, Date start, Date end, boolean consecutive) {
+    public ExamManager addExam(String name, String pathexcel, Date start, Date end
+            , boolean consecutive, boolean random) {
         ExamManager examManager = new ExamManager(name, this, start, end);
         examManager.setConsecutive(consecutive);
+        examManager.setRandom(random);
         getExamManagers().add(examManager);
         try {
             XSSFWorkbook wb = new XSSFWorkbook(new FileInputStream(new File(pathexcel)));
@@ -49,9 +51,10 @@ public class Manager extends User implements Serializable {
         return examManager;
     }
 
-    public ExamManager addExam(String name, Date start, Date end,boolean consecutive) {
+    public ExamManager addExam(String name, Date start, Date end, boolean consecutive, boolean random) {
         ExamManager examManager = new ExamManager(name, this, start, end);
         examManager.setConsecutive(consecutive);
+        examManager.setRandom(random);
         getExamManagers().add(examManager);
         return examManager;
     }
