@@ -34,13 +34,14 @@ public class ManagerLogin implements Serializable {
     @FXML
     void OK_Click(ActionEvent event) {
         manager = MainClass.getMainClass().loginManager(usernametext.getText(), passwordtext.getText());
-        if (manager != null) {
+        if (manager != null)
             try {
                 MainClass.getMainClass().changescene("ManagerPage.fxml");
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
+        else
+            System.out.println("RIDIIIIIIIIII");
     }
 
     @FXML

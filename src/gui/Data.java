@@ -3,6 +3,7 @@ package gui;
 import back.*;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class Data extends Thread implements Serializable {
     boolean load = true;
@@ -96,6 +97,21 @@ public class Data extends Thread implements Serializable {
                                 examStudent2.setStudent(student1);
                                 j++;
                             }
+                            break;
+                        case "Edit Survey":
+                            student = (Student) o.readObject();
+                            student = (Student) User.getUser(student.getUsername());
+                            i = (int) o.readObject();
+                            examStudent = (ExamStudent) o.readObject();
+                            student.getExamStudents().get(i).setSurvey(examStudent.getSurvey());
+                            break;
+                        case "Answer Student":
+                            student = (Student) o.readObject();
+                            student = (Student) User.getUser(student.getUsername());
+                            i = (int) o.readObject();
+                            examStudent = student.getExamStudents().get(i);
+                            ArrayList<Answer> answers = (ArrayList<Answer>) o.readObject();
+                            examStudent.setAnswers(answers);
                             break;
                     }
                     o.close();

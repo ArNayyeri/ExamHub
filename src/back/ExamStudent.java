@@ -16,6 +16,36 @@ public class ExamStudent implements Serializable {
     private ArrayList<Answer> answers = new ArrayList<>();
     private boolean consecutive = true;
     private boolean access = true;
+    private Survey survey;
+    private boolean random = false;
+
+    public void setAnswers(ArrayList<Answer> answers) {
+        this.answers = answers;
+    }
+
+    public ExamManager getExamManager() {
+        return examManager;
+    }
+
+    public ArrayList<Answer> getAnswers() {
+        return answers;
+    }
+
+    public boolean isRandom() {
+        return random;
+    }
+
+    public void setRandom(boolean random) {
+        this.random = random;
+    }
+
+    public Survey getSurvey() {
+        return survey;
+    }
+
+    public void setSurvey(Survey survey) {
+        this.survey = survey;
+    }
 
     public boolean isAccess() {
         return access;
@@ -93,5 +123,6 @@ public class ExamStudent implements Serializable {
         this.chat = examManager.getChat();
         this.questions = examManager.getQuestions();
         this.consecutive = examManager.isConsecutive();
+        this.random = examManager.isRandom();
     }
 }

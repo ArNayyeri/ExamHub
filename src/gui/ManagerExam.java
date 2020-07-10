@@ -79,7 +79,11 @@ public class ManagerExam {
 
     @FXML
     void excel(ActionEvent event) {
-
+        try {
+            MainClass.getMainClass().changescene("ExcelResult.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

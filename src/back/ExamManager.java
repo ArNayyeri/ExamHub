@@ -89,6 +89,12 @@ public class ExamManager implements Serializable {
         return average;
     }
 
+    public int getRank(ExamStudent examStudent) {
+        ArrayList<ExamStudent> examStudents1 = new ArrayList<>(examStudents);
+        examStudents1.sort(new ExamStudentSort());
+        return examStudents1.indexOf(examStudent) + 1;
+    }
+
     public ExamManager(String name, Manager manager, Date start, Date end) {
         this.name = name;
         this.manager = manager;

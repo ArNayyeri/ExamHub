@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 import back.ExamManager;
+import back.ExamStudent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -93,15 +94,24 @@ public class CreateExam {
         if (MyExamsManager.examManager != null) {
             ExamManager examManager = new ExamManager(nameText.getText(), ManagerLogin.manager, datestart, dateend);
             examManager.setConsecutive(consecutive.isSelected());
+            examManager.setRandom(random.isSelected());
+            examManager.setStudents(MyExamsManager.examManager.getStudents());
+            int x[] = new int[MyExamsManager.examManager.getStudents().size()];
+            for (int i = 0; i < MyExamsManager.examManager.getStudents().size(); i++) {
+                x[i] = MyExamsManager.examManager.getExamStudents().get(i).getStudent().
+                        getExamStudents().indexOf(MyExamsManager.examManager.getExamStudents().get(i));
+                ExamStudent examStudent = new ExamStudent(examManager,
+                        MyExamsManager.examManager.getExamStudents().get(i).getStudent());
+                examManager.getExamStudents().add(examStudent);
+                MyExamsManager.examManager.getExamStudents().get(i).getStudent().
+                        getExamStudents().set(x[i], examStudent);
+            }
+
             ManagerLogin.manager.getExamManagers().set(
                     ManagerLogin.manager.getExamManagers().indexOf(MyExamsManager.examManager), examManager);
             Object o[] = new Object[3];
             o[0] = examManager;
             o[1] = ManagerLogin.manager.getExamManagers().indexOf(examManager);
-            int x[] = new int[examManager.getStudents().size()];
-            for (int i = 0; i < examManager.getStudents().size(); i++)
-                x[i] = examManager.getExamStudents().get(i).getStudent().
-                        getExamStudents().indexOf(examManager.getExamStudents().get(i));
             o[2] = x;
             MainClass.getMainClass().data.save("Edit Exam", o);
         } else {

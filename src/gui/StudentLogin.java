@@ -14,6 +14,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class StudentLogin implements Serializable {
+    static Student student;
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
 
@@ -31,7 +32,15 @@ public class StudentLogin implements Serializable {
 
     @FXML
     void OK_Click(ActionEvent event) {
-        Student student = MainClass.getMainClass().loginStudent(usernametext.getText(), passwordtext.getText());
+        student = MainClass.getMainClass().loginStudent(usernametext.getText(), passwordtext.getText());
+        if (student != null)
+            try {
+                MainClass.getMainClass().changescene("StudentPage.fxml");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        else
+            System.out.println("RIDIIIIIIIIII");
     }
 
     @FXML
