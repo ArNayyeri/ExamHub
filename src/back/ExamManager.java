@@ -15,6 +15,15 @@ public class ExamManager implements Serializable {
     private ArrayList<ExamStudent> examStudents = new ArrayList<>();
     private boolean consecutive = true;
     private boolean random = false;
+    private boolean review = true;
+
+    public boolean isReview() {
+        return review;
+    }
+
+    public void setReview(boolean review) {
+        this.review = review;
+    }
 
     public boolean isRandom() {
         return random;

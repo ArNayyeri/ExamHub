@@ -54,7 +54,7 @@ public class AnswerTrueFalseStudent extends Thread {
             answerTrueFalse.setAnswer(true);
         else
             answerTrueFalse.setAnswer(false);
-        StudentExam.finish = true;
+        MyExamsStudent.examStudent.setFinish(true);
         Object o[] = new Object[3];
         o[0] = StudentLogin.student;
         o[1] = StudentLogin.student.getExamStudents().indexOf(MyExamsStudent.examStudent);

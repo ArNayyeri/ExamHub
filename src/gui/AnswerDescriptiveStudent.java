@@ -75,7 +75,7 @@ public class AnswerDescriptiveStudent extends Thread {
     @FXML
     void finish(ActionEvent event) {
         answerDescriptive.setFile(file);
-        StudentExam.finish = true;
+        MyExamsStudent.examStudent.setFinish(true);
         Object o[] = new Object[3];
         o[0] = StudentLogin.student;
         o[1] = StudentLogin.student.getExamStudents().indexOf(MyExamsStudent.examStudent);

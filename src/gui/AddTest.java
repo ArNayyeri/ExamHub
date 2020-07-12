@@ -44,6 +44,9 @@ public class AddTest {
     private TextField correct; // Value injected by FXMLLoader
 
     @FXML
+    private TextField point;
+
+    @FXML
     void OK(ActionEvent event) {
         String x[] = new String[4];
         x[0] = option1.getText();
@@ -51,16 +54,17 @@ public class AddTest {
         x[2] = option3.getText();
         x[3] = option4.getText();
         if (EditQuestion.question != null) {
-             QuestionTest questionTest= new QuestionTest(Text.getText(), Integer.parseInt(Time.getText())
+            QuestionTest questionTest = new QuestionTest(Text.getText(), Integer.parseInt(Time.getText())
                     , x, Byte.parseByte(correct.getText()));
+            questionTest.setPoint(Double.parseDouble(point.getText()));
             MyExamsManager.examManager.getQuestions().set(MyExamsManager.examManager.getQuestions().
-                    indexOf(EditQuestion.question),questionTest);
-            Object o[]=new Object[4];
-            o[0]=ManagerLogin.manager;
-            o[1]=ManagerLogin.manager.getExamManagers().indexOf(MyExamsManager.examManager);
-            o[2]=MyExamsManager.examManager.getQuestions().indexOf(questionTest);
-            o[3]=questionTest;
-            MainClass.getMainClass().data.save("Edit Question",o);
+                    indexOf(EditQuestion.question), questionTest);
+            Object o[] = new Object[4];
+            o[0] = ManagerLogin.manager;
+            o[1] = ManagerLogin.manager.getExamManagers().indexOf(MyExamsManager.examManager);
+            o[2] = MyExamsManager.examManager.getQuestions().indexOf(questionTest);
+            o[3] = questionTest;
+            MainClass.getMainClass().data.save("Edit Question", o);
             try {
                 MainClass.getMainClass().changescene("EditQuestion.fxml");
             } catch (Exception e) {
@@ -69,12 +73,13 @@ public class AddTest {
         } else {
             QuestionTest questionTest = new QuestionTest(Text.getText(), Integer.parseInt(Time.getText())
                     , x, Byte.parseByte(correct.getText()));
+            questionTest.setPoint(Double.parseDouble(point.getText()));
             MyExamsManager.examManager.getQuestions().add(questionTest);
             Object o[] = new Object[3];
             o[0] = ManagerLogin.manager;
             o[1] = ManagerLogin.manager.getExamManagers().indexOf(MyExamsManager.examManager);
             o[2] = questionTest;
-            MainClass.getMainClass().data.save("New Add Question",o);
+            MainClass.getMainClass().data.save("New Add Question", o);
             try {
                 MainClass.getMainClass().changescene("AddQuestion.fxml");
             } catch (Exception e) {
@@ -102,6 +107,7 @@ public class AddTest {
             option3.setText(questionTest.getOptions()[2]);
             option4.setText(questionTest.getOptions()[3]);
             correct.setText(String.valueOf(questionTest.getCorrect()));
+            point.setText(String.valueOf(questionTest.getPoint()));
         }
     }
 }

@@ -68,6 +68,9 @@ public class CreateExam {
     private RadioButton random;
 
     @FXML
+    private RadioButton review;
+
+    @FXML
     void Choose_File(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Excel File");
@@ -106,7 +109,7 @@ public class CreateExam {
                 MyExamsManager.examManager.getExamStudents().get(i).getStudent().
                         getExamStudents().set(x[i], examStudent);
             }
-
+            examManager.setReview(review.isSelected());
             ManagerLogin.manager.getExamManagers().set(
                     ManagerLogin.manager.getExamManagers().indexOf(MyExamsManager.examManager), examManager);
             Object o[] = new Object[3];
@@ -117,13 +120,17 @@ public class CreateExam {
         } else {
             if (file != null && ExcelRadio.isSelected()) {
                 Object o[] = new Object[1];
-                o[0] = ManagerLogin.manager.addExam(nameText.getText(), file.getPath(), datestart, dateend,
+                ExamManager examManager = ManagerLogin.manager.addExam(nameText.getText(), file.getPath(), datestart, dateend,
                         consecutive.isSelected(), random.isSelected());
+                examManager.setReview(review.isSelected());
+                o[0] = examManager;
                 MainClass.getMainClass().data.save("Add Exam", o);
             } else {
                 Object o[] = new Object[1];
-                o[0] = ManagerLogin.manager.addExam(nameText.getText(), datestart, dateend
+                ExamManager examManager = ManagerLogin.manager.addExam(nameText.getText(), datestart, dateend
                         , consecutive.isSelected(), random.isSelected());
+                examManager.setReview(review.isSelected());
+                o[0] = examManager;
                 MainClass.getMainClass().data.save("Add Exam", o);
             }
         }

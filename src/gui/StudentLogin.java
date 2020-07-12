@@ -33,13 +33,13 @@ public class StudentLogin implements Serializable {
     @FXML
     void OK_Click(ActionEvent event) {
         student = MainClass.getMainClass().loginStudent(usernametext.getText(), passwordtext.getText());
-        if (student != null)
+        if (student != null) {
             try {
                 MainClass.getMainClass().changescene("StudentPage.fxml");
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        else
+        } else
             System.out.println("RIDIIIIIIIIII");
     }
 
@@ -49,6 +49,5 @@ public class StudentLogin implements Serializable {
         assert usernametext != null : "gui:id=\"usernametext\" was not injected: check your FXML file 'ManagerLogin.fxml'.";
         assert passwordtext != null : "gui:id=\"passwordtext\" was not injected: check your FXML file 'ManagerLogin.fxml'.";
         assert OK != null : "gui:id=\"OK\" was not injected: check your FXML file 'ManagerLogin.fxml'.";
-
     }
 }

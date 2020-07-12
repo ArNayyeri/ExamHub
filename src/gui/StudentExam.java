@@ -20,7 +20,6 @@ import javafx.scene.control.Label;
 public class StudentExam extends Thread {
     static int number[];
     static int n;
-    static boolean finish = false;
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
@@ -48,6 +47,17 @@ public class StudentExam extends Thread {
 
     @FXML // fx:id="question_label"
     private Label question_label; // Value injected by FXMLLoader
+
+    @FXML
+    private Label access;
+
+    @FXML
+    private Button grade;
+
+    @FXML
+    void grade_Click(ActionEvent event) {
+
+    }
 
     @FXML
     void back(ActionEvent event) {
@@ -124,19 +134,22 @@ public class StudentExam extends Thread {
             if (MyExamsStudent.examStudent.getStart().compareTo(date) > 0) {
                 start.setDisable(true);
                 review.setDisable(true);
+                grade.setDisable(true);
                 survey.setDisable(true);
             } else if (MyExamsStudent.examStudent.getStart().compareTo(date) <= 0 &&
                     MyExamsStudent.examStudent.getEnd().compareTo(date) > 0) {
                 start.setDisable(false);
                 review.setDisable(true);
+                grade.setDisable(true);
                 survey.setDisable(true);
             } else {
                 start.setDisable(true);
                 review.setDisable(false);
+                grade.setDisable(false);
                 survey.setDisable(false);
                 stop();
             }
-            if (finish)
+            if (MyExamsStudent.examStudent.isFinish())
                 start.setDisable(true);
             try {
                 Thread.sleep(1000);
@@ -164,20 +177,32 @@ public class StudentExam extends Thread {
         if (MyExamsStudent.examStudent.getStart().compareTo(date) > 0) {
             start.setDisable(true);
             review.setDisable(true);
+            grade.setDisable(true);
             survey.setDisable(true);
             start();
         } else if (MyExamsStudent.examStudent.getStart().compareTo(date) <= 0 &&
                 MyExamsStudent.examStudent.getEnd().compareTo(date) > 0) {
             start.setDisable(false);
+            grade.setDisable(true);
             review.setDisable(true);
             survey.setDisable(true);
             start();
         } else {
             start.setDisable(true);
             review.setDisable(false);
+            grade.setDisable(false);
             survey.setDisable(false);
         }
-        if (finish)
+        if (MyExamsStudent.examStudent.isFinish())
             start.setDisable(true);
+        if (MyExamsStudent.examStudent.isAccess())
+            access.setText("You have access");
+        else {
+            access.setText("You have not access");
+            start.setDisable(true);
+            review.setDisable(true);
+            grade.setDisable(true);
+            survey.setDisable(true);
+        }
     }
 }

@@ -18,6 +18,15 @@ public class ExamStudent implements Serializable {
     private boolean access = true;
     private Survey survey;
     private boolean random = false;
+    private boolean finish = false;
+
+    public boolean isFinish() {
+        return finish;
+    }
+
+    public void setFinish(boolean finish) {
+        this.finish = finish;
+    }
 
     public void setAnswers(ArrayList<Answer> answers) {
         this.answers = answers;

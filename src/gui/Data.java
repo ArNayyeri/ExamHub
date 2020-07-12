@@ -112,6 +112,7 @@ public class Data extends Thread implements Serializable {
                             examStudent = student.getExamStudents().get(i);
                             ArrayList<Answer> answers = (ArrayList<Answer>) o.readObject();
                             examStudent.setAnswers(answers);
+                            examStudent.setFinish(true);
                             break;
                     }
                     o.close();

@@ -69,7 +69,7 @@ public class AnswerTestStudent extends Thread {
             answerTest.setAnswer((byte) 3);
         else if (radio4.isSelected())
             answerTest.setAnswer((byte) 4);
-        StudentExam.finish = true;
+        MyExamsStudent.examStudent.setFinish(true);
         Object o[] = new Object[3];
         o[0] = StudentLogin.student;
         o[1] = StudentLogin.student.getExamStudents().indexOf(MyExamsStudent.examStudent);

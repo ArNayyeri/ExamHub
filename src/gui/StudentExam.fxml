@@ -4,16 +4,17 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.StudentExam">
    <children>
-      <Button layoutX="231.0" layoutY="315.0" mnemonicParsing="false" onAction="#back" text="Back" />
+      <Button layoutX="285.0" layoutY="352.0" mnemonicParsing="false" onAction="#back" text="Back" />
       <Button fx:id="start" layoutX="231.0" layoutY="255.0" mnemonicParsing="false" onAction="#start_Click" text="Start" />
       <Button fx:id="review" layoutX="345.0" layoutY="255.0" mnemonicParsing="false" onAction="#review_Click" text="Review" />
       <Button fx:id="survey" layoutX="345.0" layoutY="315.0" mnemonicParsing="false" onAction="#survey_Click" text="Survey" />
       <Label fx:id="namelabel" layoutX="151.0" layoutY="35.0" prefHeight="17.0" prefWidth="268.0" text="Name " />
       <Label fx:id="start_timelabel" layoutX="149.0" layoutY="67.0" prefHeight="17.0" prefWidth="268.0" text="Start Time " />
       <Label fx:id="endtime_label" layoutX="151.0" layoutY="98.0" prefHeight="17.0" prefWidth="268.0" text="End Time " />
-      <Label fx:id="question_label" alignment="TOP_LEFT" layoutX="149.0" layoutY="129.0" prefHeight="104.0" prefWidth="268.0" text="Question" />
+      <Label fx:id="question_label" alignment="TOP_LEFT" layoutX="149.0" layoutY="148.0" prefHeight="104.0" prefWidth="268.0" text="Question" />
+      <Label fx:id="access" layoutX="151.0" layoutY="125.0" prefHeight="17.0" prefWidth="268.0" text="Access" />
+      <Button fx:id="grade" layoutX="228.0" layoutY="315.0" mnemonicParsing="false" onAction="#grade_Click" text="Grade" />
    </children>
 </AnchorPane>

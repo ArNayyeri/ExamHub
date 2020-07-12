@@ -28,10 +28,14 @@ public class AddDescriptive {
     private TextField Time; // Value injected by FXMLLoader
 
     @FXML
+    private TextField point;
+
+    @FXML
     void OK(ActionEvent event) {
         if (EditQuestion.question != null) {
             QuestionDescriptive questionDescriptive = new QuestionDescriptive
                     (Text.getText(), Integer.parseInt(Time.getText()));
+            questionDescriptive.setPoint(Double.parseDouble(point.getText()));
             MyExamsManager.examManager.getQuestions().set(MyExamsManager.examManager.getQuestions().
                     indexOf(EditQuestion.question), questionDescriptive);
             Object o[] = new Object[4];
@@ -48,6 +52,7 @@ public class AddDescriptive {
         } else {
             QuestionDescriptive questionDescriptive = new QuestionDescriptive(Text.getText(),
                     Integer.parseInt(Time.getText()));
+            questionDescriptive.setPoint(Double.parseDouble(point.getText()));
             MyExamsManager.examManager.getQuestions().add(questionDescriptive);
             Object o[] = new Object[3];
             o[0] = ManagerLogin.manager;
@@ -71,6 +76,7 @@ public class AddDescriptive {
         if (EditQuestion.question != null) {
             Text.setText(EditQuestion.question.getText());
             Time.setText(String.valueOf(EditQuestion.question.getTime()));
+            point.setText(String.valueOf(EditQuestion.question.getPoint()));
         }
     }
 }
