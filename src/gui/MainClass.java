@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.util.ArrayList;
 
-public class MainClass extends Application{
+public class MainClass extends Application {
     public Data data = new Data();
     public ArrayList<Manager> managers = new ArrayList<>();
     public ArrayList<Student> students = new ArrayList<>();
@@ -122,5 +122,6 @@ public class MainClass extends Application{
     public void stop() throws Exception {
         data.stop();
         super.stop();
+        System.exit(0);
     }
 }

@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 import back.ExamManager;
+import back.ExamStudent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -67,6 +68,9 @@ public class CreateExam {
     private RadioButton random;
 
     @FXML
+    private RadioButton review;
+
+    @FXML
     void Choose_File(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Excel File");
@@ -93,27 +97,40 @@ public class CreateExam {
         if (MyExamsManager.examManager != null) {
             ExamManager examManager = new ExamManager(nameText.getText(), ManagerLogin.manager, datestart, dateend);
             examManager.setConsecutive(consecutive.isSelected());
+            examManager.setRandom(random.isSelected());
+            examManager.setStudents(MyExamsManager.examManager.getStudents());
+            int x[] = new int[MyExamsManager.examManager.getStudents().size()];
+            for (int i = 0; i < MyExamsManager.examManager.getStudents().size(); i++) {
+                x[i] = MyExamsManager.examManager.getExamStudents().get(i).getStudent().
+                        getExamStudents().indexOf(MyExamsManager.examManager.getExamStudents().get(i));
+                ExamStudent examStudent = new ExamStudent(examManager,
+                        MyExamsManager.examManager.getExamStudents().get(i).getStudent());
+                examManager.getExamStudents().add(examStudent);
+                MyExamsManager.examManager.getExamStudents().get(i).getStudent().
+                        getExamStudents().set(x[i], examStudent);
+            }
+            examManager.setReview(review.isSelected());
             ManagerLogin.manager.getExamManagers().set(
                     ManagerLogin.manager.getExamManagers().indexOf(MyExamsManager.examManager), examManager);
             Object o[] = new Object[3];
             o[0] = examManager;
             o[1] = ManagerLogin.manager.getExamManagers().indexOf(examManager);
-            int x[] = new int[examManager.getStudents().size()];
-            for (int i = 0; i < examManager.getStudents().size(); i++)
-                x[i] = examManager.getExamStudents().get(i).getStudent().
-                        getExamStudents().indexOf(examManager.getExamStudents().get(i));
             o[2] = x;
             MainClass.getMainClass().data.save("Edit Exam", o);
         } else {
             if (file != null && ExcelRadio.isSelected()) {
                 Object o[] = new Object[1];
-                o[0] = ManagerLogin.manager.addExam(nameText.getText(), file.getPath(), datestart, dateend,
+                ExamManager examManager = ManagerLogin.manager.addExam(nameText.getText(), file.getPath(), datestart, dateend,
                         consecutive.isSelected(), random.isSelected());
+                examManager.setReview(review.isSelected());
+                o[0] = examManager;
                 MainClass.getMainClass().data.save("Add Exam", o);
             } else {
                 Object o[] = new Object[1];
-                o[0] = ManagerLogin.manager.addExam(nameText.getText(), datestart, dateend
+                ExamManager examManager = ManagerLogin.manager.addExam(nameText.getText(), datestart, dateend
                         , consecutive.isSelected(), random.isSelected());
+                examManager.setReview(review.isSelected());
+                o[0] = examManager;
                 MainClass.getMainClass().data.save("Add Exam", o);
             }
         }

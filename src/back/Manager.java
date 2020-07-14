@@ -61,9 +61,10 @@ public class Manager extends User implements Serializable {
 
     public void addStudentExam(ExamManager examManager, String id, String firstname, String lastname) {
         Student student;
-        if (User.getUser(id) == null)
+        if (User.getUser(id) == null) {
             student = new Student(firstname, lastname, id, id, id);
-        else
+            MainClass.getMainClass().students.add(student);
+        } else
             student = (Student) User.getUser(id);
         ExamStudent examStudent = new ExamStudent(examManager, student);
         examManager.getStudents().add(student);
@@ -99,7 +100,7 @@ public class Manager extends User implements Serializable {
         return Return;
     }
 
-    public void averageexcel() {
+    public void averageexcel(String name) {
         XSSFWorkbook workbook = new XSSFWorkbook();
         XSSFSheet sheet = workbook.createSheet();
         int n = 0;
@@ -114,7 +115,7 @@ public class Manager extends User implements Serializable {
             }
         }
         try {
-            FileOutputStream FOS = new FileOutputStream("excel.xlsx");
+            FileOutputStream FOS = new FileOutputStream(name + ".xlsx");
             workbook.write(FOS);
             FOS.close();
         } catch (IOException e) {
@@ -122,7 +123,7 @@ public class Manager extends User implements Serializable {
         }
     }
 
-    public void examexcel(ExamManager examManager) {
+    public void examexcel(ExamManager examManager, String name) {
         XSSFWorkbook workbook = new XSSFWorkbook();
         XSSFSheet sheet = workbook.createSheet();
         int n = 0;
@@ -130,14 +131,14 @@ public class Manager extends User implements Serializable {
             if (examStudent.getGrade() != -1) {
                 Row row = sheet.createRow(n);
                 Cell cell = row.createCell(0);
-                cell.setCellValue(examManager.getName());
+                cell.setCellValue(examStudent.getStudent().getId());
                 cell = row.createCell(1);
                 cell.setCellValue(examStudent.getGrade());
                 n++;
             }
         }
         try {
-            FileOutputStream FOS = new FileOutputStream("excel.xlsx");
+            FileOutputStream FOS = new FileOutputStream(name + ".xlsx");
             workbook.write(FOS);
             FOS.close();
         } catch (IOException e) {

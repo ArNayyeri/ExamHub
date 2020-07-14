@@ -32,18 +32,23 @@ public class AddTrueFalse {
     private RadioButton Radio; // Value injected by FXMLLoader
 
     @FXML
+    private TextField point;
+
+
+    @FXML
     void OK(ActionEvent event) {
         if (EditQuestion.question != null) {
             QuestionTrueFalse questionTrueFalse = new QuestionTrueFalse(
                     Text.getText(), Integer.parseInt(Time.getText()), Radio.isSelected());
+            questionTrueFalse.setPoint(Double.parseDouble(point.getText()));
             MyExamsManager.examManager.getQuestions().set(MyExamsManager.examManager.getQuestions().
                     indexOf(EditQuestion.question), questionTrueFalse);
-            Object o[]=new Object[4];
-            o[0]=ManagerLogin.manager;
-            o[1]=ManagerLogin.manager.getExamManagers().indexOf(MyExamsManager.examManager);
-            o[2]=MyExamsManager.examManager.getQuestions().indexOf(questionTrueFalse);
-            o[3]=questionTrueFalse;
-            MainClass.getMainClass().data.save("Edit Question",o);
+            Object o[] = new Object[4];
+            o[0] = ManagerLogin.manager;
+            o[1] = ManagerLogin.manager.getExamManagers().indexOf(MyExamsManager.examManager);
+            o[2] = MyExamsManager.examManager.getQuestions().indexOf(questionTrueFalse);
+            o[3] = questionTrueFalse;
+            MainClass.getMainClass().data.save("Edit Question", o);
             try {
                 MainClass.getMainClass().changescene("EditQuestion.fxml");
             } catch (Exception e) {
@@ -52,6 +57,7 @@ public class AddTrueFalse {
         } else {
             QuestionTrueFalse questionTrueFalse = new QuestionTrueFalse
                     (Text.getText(), Integer.parseInt(Time.getText()), Radio.isSelected());
+            questionTrueFalse.setPoint(Double.parseDouble(point.getText()));
             MyExamsManager.examManager.getQuestions().add(questionTrueFalse);
             Object o[] = new Object[3];
             o[0] = ManagerLogin.manager;
@@ -78,6 +84,7 @@ public class AddTrueFalse {
             Text.setText(EditQuestion.question.getText());
             Time.setText(String.valueOf(EditQuestion.question.getTime()));
             Radio.setSelected(questionTrueFalse.isCorrect());
+            point.setText(String.valueOf(EditQuestion.question.getPoint()));
         }
     }
 }

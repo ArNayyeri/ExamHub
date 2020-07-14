@@ -5,7 +5,17 @@ import java.io.Serializable;
 public class Question implements Serializable {
     private String Text;
 
+    private double point;
+
     private int time = -1;
+
+    public double getPoint() {
+        return point;
+    }
+
+    public void setPoint(double point) {
+        this.point = point;
+    }
 
     public int getTime() {
         return time;

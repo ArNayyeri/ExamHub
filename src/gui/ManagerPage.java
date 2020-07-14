@@ -21,7 +21,22 @@ public class ManagerPage {
 
     @FXML
     void Chats(ActionEvent event) {
+        StudentLogin.student = null;
+        try {
+            MainClass.getMainClass().changescene("ChatList.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
+    @FXML
+    void Excel(ActionEvent event) {
+        MyExamsManager.examManager = null;
+        try {
+            MainClass.getMainClass().changescene("ExcelResult.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -43,6 +58,26 @@ public class ManagerPage {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    void chart(ActionEvent event) {
+        MyExamsManager.examManager = null;
+        try {
+            MainClass.getMainClass().changescene("Chart.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void exit(ActionEvent event) {
+        try {
+            MainClass.getMainClass().changescene("FirstPage.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @FXML
         // This method is called by the FXMLLoader when initialization is complete

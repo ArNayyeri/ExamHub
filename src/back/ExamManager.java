@@ -15,6 +15,15 @@ public class ExamManager implements Serializable {
     private ArrayList<ExamStudent> examStudents = new ArrayList<>();
     private boolean consecutive = true;
     private boolean random = false;
+    private boolean review = true;
+
+    public boolean isReview() {
+        return review;
+    }
+
+    public void setReview(boolean review) {
+        this.review = review;
+    }
 
     public boolean isRandom() {
         return random;
@@ -87,6 +96,12 @@ public class ExamManager implements Serializable {
         }
         average = Math.ceil((average / examStudents.size()) * 100) / 100;
         return average;
+    }
+
+    public int getRank(ExamStudent examStudent) {
+        ArrayList<ExamStudent> examStudents1 = new ArrayList<>(examStudents);
+        examStudents1.sort(new ExamStudentSort());
+        return examStudents1.indexOf(examStudent) + 1;
     }
 
     public ExamManager(String name, Manager manager, Date start, Date end) {

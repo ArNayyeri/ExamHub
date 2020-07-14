@@ -3,6 +3,7 @@ package gui;
 import back.*;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class Data extends Thread implements Serializable {
     boolean load = true;
@@ -95,6 +96,60 @@ public class Data extends Thread implements Serializable {
                                 examStudent2.setManager(manager1);
                                 examStudent2.setStudent(student1);
                                 j++;
+                            }
+                            break;
+                        case "Edit Survey":
+                            student = (Student) o.readObject();
+                            student = (Student) User.getUser(student.getUsername());
+                            i = (int) o.readObject();
+                            examStudent = (ExamStudent) o.readObject();
+                            student.getExamStudents().get(i).setSurvey(examStudent.getSurvey());
+                            break;
+                        case "Answer Student":
+                            student = (Student) o.readObject();
+                            student = (Student) User.getUser(student.getUsername());
+                            i = (int) o.readObject();
+                            examStudent = student.getExamStudents().get(i);
+                            ArrayList<Answer> answers = (ArrayList<Answer>) o.readObject();
+                            examStudent.setAnswers(answers);
+                            examStudent.setFinish(true);
+                            break;
+                        case "Correction Test TrueFalse":
+                            student = (Student) o.readObject();
+                            student = (Student) User.getUser(student.getUsername());
+                            i = (int) o.readObject();
+                            examStudent = student.getExamStudents().get(i);
+                            ExamStudent examStudent1 = (ExamStudent) o.readObject();
+                            for (i = 0; i < examStudent.getAnswers().size(); i++) {
+                                if (examStudent.getAnswers().get(i) instanceof AnswerTest ||
+                                        examStudent.getAnswers().get(i) instanceof AnswerTrueFalse)
+                                    examStudent.getAnswers().get(i).setGrade(examStudent1.getAnswers().get(i).getGrade());
+                            }
+                            break;
+                        case "Correction Descriptive":
+                            student = (Student) o.readObject();
+                            student = (Student) User.getUser(student.getUsername());
+                            i = (int) o.readObject();
+                            j = (int) o.readObject();
+                            examStudent = student.getExamStudents().get(i);
+                            AnswerDescriptive answerDescriptive = (AnswerDescriptive) examStudent.getAnswers().get(j);
+                            double xx = (double) o.readObject();
+                            answerDescriptive.setGrade(xx);
+                            break;
+                        case "Message Add":
+                            User user = (User) o.readObject();
+                            if (user instanceof Manager) {
+                                manager = (Manager) User.getUser(user.getUsername());
+                                i = (int) o.readObject();
+                                examManager = manager.getExamManagers().get(i);
+                                Message message = (Message) o.readObject();
+                                examManager.getChat().getMessages().add(message);
+                            } else {
+                                student = (Student) User.getUser(user.getUsername());
+                                i = (int) o.readObject();
+                                examStudent = student.getExamStudents().get(i);
+                                Message message = (Message) o.readObject();
+                                examStudent.getChat().getMessages().add(message);
                             }
                             break;
                     }

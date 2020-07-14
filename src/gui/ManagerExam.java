@@ -74,17 +74,29 @@ public class ManagerExam {
 
     @FXML
     void correction(ActionEvent event) {
-
+        try {
+            MainClass.getMainClass().changescene("CorrectionList.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void excel(ActionEvent event) {
-
+        try {
+            MainClass.getMainClass().changescene("ExcelResult.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void graph(ActionEvent event) {
-
+        try {
+            MainClass.getMainClass().changescene("Chart.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

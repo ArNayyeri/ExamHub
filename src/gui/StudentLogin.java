@@ -14,6 +14,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class StudentLogin implements Serializable {
+    static Student student;
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
 
@@ -31,7 +32,15 @@ public class StudentLogin implements Serializable {
 
     @FXML
     void OK_Click(ActionEvent event) {
-        Student student = MainClass.getMainClass().loginStudent(usernametext.getText(), passwordtext.getText());
+        student = MainClass.getMainClass().loginStudent(usernametext.getText(), passwordtext.getText());
+        if (student != null) {
+            try {
+                MainClass.getMainClass().changescene("StudentPage.fxml");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else
+            System.out.println("RIDIIIIIIIIII");
     }
 
     @FXML
@@ -40,6 +49,5 @@ public class StudentLogin implements Serializable {
         assert usernametext != null : "gui:id=\"usernametext\" was not injected: check your FXML file 'ManagerLogin.fxml'.";
         assert passwordtext != null : "gui:id=\"passwordtext\" was not injected: check your FXML file 'ManagerLogin.fxml'.";
         assert OK != null : "gui:id=\"OK\" was not injected: check your FXML file 'ManagerLogin.fxml'.";
-
     }
 }
