@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="307.0" prefWidth="600.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FirstPage">
+   <children>
+      <ImageView layoutX="207.0" layoutY="64.0">
+         <image>
+            <Image url="@../Images/ExamHub%20logo.png" />
+         </image>
+      </ImageView>
+      <MenuButton layoutX="79.0" layoutY="120.0" mnemonicParsing="false" style="-fx-background-color: #ff9900;" text="Login">
+        <items>
+          <MenuItem mnemonicParsing="false" onAction="#Login_Student" text="Student" />
+          <MenuItem mnemonicParsing="false" onAction="#Login_Manager" text="Manager" />
+        </items>
+      </MenuButton>
+      <MenuButton layoutX="435.0" layoutY="120.0" mnemonicParsing="false" style="-fx-background-color: #ff9900;" text="Sign up">
+        <items>
+          <MenuItem mnemonicParsing="false" onAction="#SignUp_Student" text="Student" />
+          <MenuItem mnemonicParsing="false" onAction="#SignUp_Manager" text="Manager" />
+        </items>
+      </MenuButton>
+   </children>
+</AnchorPane>
