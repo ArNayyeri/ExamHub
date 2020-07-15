@@ -190,7 +190,7 @@ public class AnswerTestStudent extends Thread {
             remaining_Time1.setText("");
         }
 
-        if (StudentExam.n == 0)
+        if (StudentExam.n == 0 || !MyExamsStudent.examStudent.isConsecutive())
             previous.setVisible(false);
         else
             previous.setVisible(true);
@@ -244,7 +244,7 @@ public class AnswerTestStudent extends Thread {
                     remaining_Time.setText(remaining_Time.getText() + A[0]);
                 }
             });
-            if (MyExamsStudent.examStudent.isConsecutive()) {
+            if (!MyExamsStudent.examStudent.isConsecutive()) {
                 int finalM = M;
                 int finalS = S;
                 Platform.runLater(new Runnable() {

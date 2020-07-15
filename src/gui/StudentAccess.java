@@ -42,6 +42,23 @@ public class StudentAccess {
     }
 
     @FXML
+    void remove(ActionEvent event) {
+        Object o[] = new Object[3];
+        o[0] = ManagerLogin.manager;
+        o[1] = ManagerLogin.manager.getExamManagers().indexOf(MyExamsManager.examManager);
+        o[2] = MyExamsManager.examManager.getExamStudents().indexOf(StudentExamEdit.examStudent);
+        MyExamsManager.examManager.getExamStudents().remove(StudentExamEdit.examStudent);
+        MyExamsManager.examManager.getStudents().remove(StudentExamEdit.examStudent.getStudent());
+        StudentExamEdit.examStudent.getStudent().getExamStudents().remove(StudentExamEdit.examStudent);
+        MainClass.getMainClass().data.save("Remove Student Exam", o);
+        try {
+            MainClass.getMainClass().changescene("StudentExamEdit.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
         // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
         assert accessradio != null : "fx:id=\"accessradio\" was not injected: check your FXML file 'StudentAccess.fxml'.";

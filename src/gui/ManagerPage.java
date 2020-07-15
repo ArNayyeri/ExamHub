@@ -40,17 +40,6 @@ public class ManagerPage {
     }
 
     @FXML
-    void Excel(ActionEvent event) {
-        MyExamsManager.examManager = null;
-        try {
-            MainClass.getMainClass().changescene("ExcelResult.fxml");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    @FXML
     void Create_Exam(ActionEvent event) {
         MyExamsManager.examManager = null;
         try {

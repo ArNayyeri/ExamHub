@@ -161,6 +161,8 @@ public class StudentExam extends Thread {
             }
             if (MyExamsStudent.examStudent.isFinish())
                 start.setDisable(true);
+            if (!MyExamsStudent.examStudent.getExamManager().isReview())
+                review.setDisable(true);
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {

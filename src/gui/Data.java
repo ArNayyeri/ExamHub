@@ -152,6 +152,17 @@ public class Data extends Thread implements Serializable {
                                 examStudent.getChat().getMessages().add(message);
                             }
                             break;
+                        case "Remove Student Exam":
+                            manager = (Manager) o.readObject();
+                            manager = (Manager) User.getUser(manager.getUsername());
+                            i = (int) o.readObject();
+                            j = (int) o.readObject();
+                            examManager = manager.getExamManagers().get(i);
+                            examStudent = examManager.getExamStudents().get(j);
+                            examManager.getExamStudents().remove(examStudent);
+                            examManager.getStudents().remove(examStudent.getStudent());
+                            examStudent.getStudent().getExamStudents().remove(examStudent);
+                            break;
                     }
                     o.close();
                     f.close();

@@ -6,13 +6,14 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AddDescriptive">
    <children>
       <TextArea fx:id="Text" layoutX="174.0" layoutY="56.0" prefHeight="144.0" prefWidth="254.0" />
       <Label layoutX="289.0" layoutY="14.0" text="Text" />
       <Button layoutX="273.0" layoutY="310.0" mnemonicParsing="false" onAction="#OK" text="OK" />
-      <TextField fx:id="Time" layoutX="227.0" layoutY="247.0" />
-      <Label layoutX="286.0" layoutY="219.0" text="Time" />
+      <TextField fx:id="Time" layoutX="100.0" layoutY="250.0" />
+      <Label layoutX="162.0" layoutY="219.0" text="Time" />
+      <TextField fx:id="point" layoutX="335.0" layoutY="250.0" />
+      <Label layoutX="396.0" layoutY="219.0" text="Point" />
    </children>
 </AnchorPane>
