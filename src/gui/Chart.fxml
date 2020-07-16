@@ -3,11 +3,13 @@
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Chart">
+<AnchorPane prefHeight="526.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Chart">
    <children>
-      <BarChart fx:id="chart" layoutX="42.0" layoutY="11.0" prefHeight="378.0" prefWidth="517.0">
+      <BarChart fx:id="chart" layoutX="42.0" layoutY="121.0" prefHeight="378.0" prefWidth="517.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" fx:id="xAxis" />
         </xAxis>
@@ -15,5 +17,10 @@
           <NumberAxis fx:id="yAxis" side="LEFT" />
         </yAxis>
       </BarChart>
+      <ImageView fitHeight="62.0" fitWidth="200.0" layoutX="192.0" layoutY="12.0">
+         <image>
+            <Image url="@../Images/ExamHub logo 2.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
