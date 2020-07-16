@@ -3,21 +3,28 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AnswerTestStudent">
+<AnchorPane prefHeight="465.0" prefWidth="680.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AnswerTestStudent">
    <children>
-      <Label fx:id="label" alignment="TOP_CENTER" layoutX="120.0" layoutY="14.0" prefHeight="190.0" prefWidth="360.0" text="Label" />
-      <RadioButton fx:id="radio1" layoutX="110.0" layoutY="170.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="337.0" text="1" />
-      <Button fx:id="next" layoutX="67.0" layoutY="337.0" mnemonicParsing="false" onAction="#next_click" text="Next" />
-      <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="106.0" text="Remaining Time" />
-      <Label fx:id="remaining_Time" alignment="CENTER" layoutX="14.0" layoutY="48.0" prefHeight="25.0" prefWidth="106.0" text=".........." />
-      <Label fx:id="remaining_Time1" alignment="CENTER" layoutX="14.0" layoutY="84.0" prefHeight="25.0" prefWidth="106.0" text="Time Question" />
-      <Label fx:id="remaining_TimeQ" alignment="CENTER" layoutX="14.0" layoutY="122.0" prefHeight="25.0" prefWidth="106.0" text="..............." />
-      <RadioButton fx:id="radio2" layoutX="110.0" layoutY="204.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="337.0" text="2" />
-      <RadioButton fx:id="radio3" layoutX="110.0" layoutY="238.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="337.0" text="3" />
-      <RadioButton fx:id="radio4" layoutX="110.0" layoutY="272.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="337.0" text="4" />
-      <Button fx:id="previous" layoutX="497.0" layoutY="337.0" mnemonicParsing="false" onAction="#previous_click" text="Previous" />
-      <Button layoutX="274.0" layoutY="350.0" mnemonicParsing="false" onAction="#finish" text="Finish" />
+      <Label fx:id="label" alignment="TOP_CENTER" layoutX="161.0" layoutY="14.0" prefHeight="190.0" prefWidth="360.0" text="Label" textFill="#5d7c7c" />
+      <RadioButton fx:id="radio1" layoutX="110.0" layoutY="217.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="337.0" text="1" textFill="#5d7c7c" />
+      <Button fx:id="next" layoutX="508.0" layoutY="374.0" mnemonicParsing="false" onAction="#next_click" style="-fx-background-color: #ff9900;" text="Next Question" />
+      <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="106.0" text="Remaining Time" textFill="#5d7c7c" />
+      <Label fx:id="remaining_Time" alignment="CENTER" layoutX="14.0" layoutY="48.0" prefHeight="25.0" prefWidth="106.0" text=".........." textFill="#5d7c7c" />
+      <Label fx:id="remaining_Time1" alignment="CENTER" layoutX="554.0" layoutY="14.0" prefHeight="25.0" prefWidth="106.0" text="Time Question" textFill="#5d7c7c" />
+      <Label fx:id="remaining_TimeQ" alignment="CENTER" layoutX="554.0" layoutY="48.0" prefHeight="25.0" prefWidth="106.0" text="..............." textFill="#5d7c7c" />
+      <RadioButton fx:id="radio2" layoutX="110.0" layoutY="254.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="337.0" text="2" textFill="#5d7c7c" />
+      <RadioButton fx:id="radio3" layoutX="110.0" layoutY="288.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="337.0" text="3" textFill="#5d7c7c" />
+      <RadioButton fx:id="radio4" layoutX="110.0" layoutY="322.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="337.0" text="4" textFill="#5d7c7c" />
+      <Button fx:id="previous" layoutX="83.0" layoutY="374.0" mnemonicParsing="false" onAction="#previous_click" style="-fx-background-color: #ff9900;" text="Previous Question" />
+      <Button layoutX="317.0" layoutY="374.0" mnemonicParsing="false" onAction="#finish" style="-fx-background-color: #ff9900;" text="Finish" />
+      <ImageView fitHeight="62.0" fitWidth="200.0" layoutX="240.0" layoutY="405.0">
+         <image>
+            <Image url="@../Images/ExamHub logo 2.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

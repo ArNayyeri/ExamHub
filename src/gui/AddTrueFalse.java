@@ -13,8 +13,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 
 public class AddTrueFalse {
+    ToggleGroup group = new ToggleGroup();
+    @FXML // fx:id="RadioF"
+    private RadioButton RadioF; // Value injected by FXMLLoader
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
