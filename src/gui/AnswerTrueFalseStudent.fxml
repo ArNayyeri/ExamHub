@@ -18,7 +18,7 @@
         <Label fx:id="remaining_TimeQ" alignment="CENTER" layoutX="480.0" layoutY="48.0" prefHeight="25.0" prefWidth="106.0" text="..............." textFill="#5d7c7c" />
         <Button fx:id="previous" layoutX="49.0" layoutY="317.0" mnemonicParsing="false" onAction="#previous_click" style="-fx-background-color: #ff9900;" text="Previous Question" />
         <Button layoutX="275.0" layoutY="292.0" mnemonicParsing="false" onAction="#finish" style="-fx-background-color: #ff9900;" text="Finish" />
-      <RadioButton fx:id="radio1" layoutX="241.0" layoutY="245.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="114.0" text="False" textFill="#5d7c7c" />
+      <RadioButton fx:id="RadioF" layoutX="241.0" layoutY="245.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="114.0" text="False" textFill="#5d7c7c" />
       <ImageView fitHeight="62.0" fitWidth="200.0" layoutX="198.0" layoutY="324.0">
          <image>
             <Image url="@../Images/ExamHub logo 2.png" />

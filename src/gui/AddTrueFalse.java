@@ -17,6 +17,7 @@ import javafx.scene.control.ToggleGroup;
 
 public class AddTrueFalse {
     ToggleGroup group = new ToggleGroup();
+
     @FXML // fx:id="RadioF"
     private RadioButton RadioF; // Value injected by FXMLLoader
 
@@ -83,11 +84,14 @@ public class AddTrueFalse {
         assert Text != null : "fx:id=\"Text\" was not injected: check your FXML file 'AddTrueFalse.fxml'.";
         assert Time != null : "fx:id=\"Time\" was not injected: check your FXML file 'AddTrueFalse.fxml'.";
         assert Radio != null : "fx:id=\"Radio\" was not injected: check your FXML file 'AddTrueFalse.fxml'.";
+        Radio.setToggleGroup(group);
+        RadioF.setToggleGroup(group);
         if (EditQuestion.question != null) {
             QuestionTrueFalse questionTrueFalse = (QuestionTrueFalse) EditQuestion.question;
             Text.setText(EditQuestion.question.getText());
             Time.setText(String.valueOf(EditQuestion.question.getTime()));
             Radio.setSelected(questionTrueFalse.isCorrect());
+            RadioF.setSelected(!questionTrueFalse.isCorrect());
             point.setText(String.valueOf(EditQuestion.question.getPoint()));
         }
     }

@@ -15,10 +15,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 
 public class AnswerTrueFalseStudent extends Thread {
     QuestionTrueFalse questionTrueFalse;
     AnswerTrueFalse answerTrueFalse;
+    ToggleGroup group = new ToggleGroup();
     boolean exist = false;
     static int M;
     static int S;
@@ -49,6 +51,9 @@ public class AnswerTrueFalseStudent extends Thread {
 
     @FXML // fx:id="previous"
     private Button previous; // Value injected by FXMLLoader
+
+    @FXML // fx:id="RadioF"
+    private RadioButton RadioF; // Value injected by FXMLLoader
 
     @FXML
     void finish(ActionEvent event) {
@@ -178,6 +183,8 @@ public class AnswerTrueFalseStudent extends Thread {
             answerTrueFalse = new AnswerTrueFalse(questionTrueFalse, false);
             MyExamsStudent.examStudent.getAnswers().add(answerTrueFalse);
         }
+        RadioF.setToggleGroup(group);
+        radio.setToggleGroup(group);
         start();
     }
 
