@@ -16,12 +16,12 @@
             <Image url="@../Images/Login Page.png" />
          </image>
       </ImageView>
-      <TextField fx:id="usernametext" layoutX="28.0" layoutY="120.0" prefHeight="25.0" prefWidth="453.0" promptText="Username" style="-fx-background-color: #3e3732; -fx-control-inner-background: #75755f;" />
+      <TextField fx:id="usernametext" layoutX="28.0" layoutY="120.0" prefHeight="25.0" prefWidth="453.0" promptText="Username" style="-fx-background-color: #3e3732; -fx-prompt-text-fill: #75755f;" />
       <Button fx:id="OK" layoutX="28.0" layoutY="194.0" mnemonicParsing="false" onAction="#OK_Click" prefHeight="19.0" prefWidth="116.0" style="-fx-background-color: #ff9900;" text="Login">
          <font>
             <Font name="Arial Bold" size="17.0" />
          </font></Button>
-      <PasswordField fx:id="passwordtext" layoutX="28.0" layoutY="154.0" prefHeight="25.0" prefWidth="453.0" promptText="Password" style="-fx-background-color: #3e3732; -fx-control-inner-background: #75755f;">
+      <PasswordField fx:id="passwordtext" layoutX="28.0" layoutY="154.0" prefHeight="25.0" prefWidth="453.0" promptText="Password" style="-fx-background-color: #3e3732; -fx-prompt-text-fill: #75755f;">
          <font>
             <Font name="Arial" size="12.0" />
          </font></PasswordField>
@@ -30,5 +30,6 @@
             <Font name="Arial Bold" size="50.0" />
          </font>
       </Label>
+      <Button layoutX="66.0" layoutY="234.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="41.0" style="-fx-background-color: #ff9900;" text="Back" />
    </children>
 </AnchorPane>
