@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CreateExam">
    <children>
-      <TextField fx:id="nameText" layoutX="226.0" layoutY="46.0" />
+      <TextField fx:id="nameText" layoutX="226.0" layoutY="46.0" style="-fx-background-color: gray;" />
       <Label layoutX="131.0" layoutY="50.0" text="Exam Name" textFill="#5d7c7c">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -21,14 +21,14 @@
       <Button fx:id="ChooseButton" layoutX="262.0" layoutY="248.0" mnemonicParsing="false" onAction="#Choose_File" style="-fx-background-color: #ff9900;" text="Choose File" />
       <Label layoutX="120.0" layoutY="149.0" text="Start Time" textFill="#5d7c7c" />
       <Label layoutX="122.0" layoutY="192.0" text="End Time" textFill="#5d7c7c" />
-      <DatePicker fx:id="Time" layoutX="213.0" layoutY="85.0" />
+      <DatePicker fx:id="Time" layoutX="213.0" layoutY="85.0" style="-fx-background-color: gray;" />
       <Label layoutX="135.0" layoutY="89.0" text="Date" textFill="#5d7c7c" />
-      <TextField fx:id="StartH" layoutX="210.0" layoutY="145.0" prefHeight="25.0" prefWidth="50.0" />
-      <TextField fx:id="StartM" layoutX="279.0" layoutY="145.0" prefHeight="25.0" prefWidth="50.0" />
-      <TextField fx:id="StartS" layoutX="350.0" layoutY="145.0" prefHeight="25.0" prefWidth="50.0" />
-      <TextField fx:id="EndH" layoutX="210.0" layoutY="188.0" prefHeight="25.0" prefWidth="50.0" />
-      <TextField fx:id="EndM" layoutX="279.0" layoutY="188.0" prefHeight="25.0" prefWidth="50.0" />
-      <TextField fx:id="EndS" layoutX="350.0" layoutY="188.0" prefHeight="25.0" prefWidth="50.0" />
+      <TextField fx:id="StartH" layoutX="210.0" layoutY="145.0" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: gray;" />
+      <TextField fx:id="StartM" layoutX="279.0" layoutY="145.0" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: gray;" />
+      <TextField fx:id="StartS" layoutX="350.0" layoutY="145.0" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: gray;" />
+      <TextField fx:id="EndH" layoutX="210.0" layoutY="188.0" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: gray;" />
+      <TextField fx:id="EndM" layoutX="279.0" layoutY="188.0" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: gray;" />
+      <TextField fx:id="EndS" layoutX="350.0" layoutY="188.0" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: gray;" />
       <Label layoutX="221.0" layoutY="121.0" text="Hour" textFill="#5d7c7c" />
       <Label layoutX="294.0" layoutY="121.0" text="Min" textFill="#5d7c7c" />
       <Label layoutX="356.0" layoutY="121.0" text="Second" textFill="#5d7c7c" />
