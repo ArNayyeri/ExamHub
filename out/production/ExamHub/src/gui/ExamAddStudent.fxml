@@ -21,5 +21,6 @@
             <Image url="@../Images/ExamHub logo 2.png" />
          </image>
       </ImageView>
+      <Button layoutX="280.0" layoutY="234.0" mnemonicParsing="false" onAction="#back" style="-fx-background-color: #ff9900;" text="Back" />
    </children>
 </AnchorPane>
