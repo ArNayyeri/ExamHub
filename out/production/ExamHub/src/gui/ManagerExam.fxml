@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ManagerExam">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ManagerExam">
    <children>
-      <Button layoutX="109.0" layoutY="175.0" mnemonicParsing="false" onAction="#Add_Question" text="Add Question" />
-      <Button layoutX="113.0" layoutY="128.0" mnemonicParsing="false" onAction="#Add_Student" text="Add Student" />
-      <Button layoutX="381.0" layoutY="128.0" mnemonicParsing="false" onAction="#Student_Access" text="Student Access" />
-      <Button layoutX="386.0" layoutY="175.0" mnemonicParsing="false" onAction="#Edit_Question" text="Edit Question" />
-      <Button layoutX="103.0" layoutY="223.0" mnemonicParsing="false" onAction="#Edit_Information" text="Edit Information" />
-      <Button layoutX="280.0" layoutY="299.0" mnemonicParsing="false" onAction="#Back_Clicked" text="Back" />
-      <Button layoutX="394.0" layoutY="223.0" mnemonicParsing="false" onAction="#correction" text="Correction" />
-      <Button layoutX="130.0" layoutY="274.0" mnemonicParsing="false" onAction="#graph" text="Graph" />
-      <Button layoutX="408.0" layoutY="274.0" mnemonicParsing="false" onAction="#excel" text="Excel" />
+      <Button layoutX="65.0" layoutY="141.0" mnemonicParsing="false" onAction="#Add_Question" style="-fx-background-color: #ff9900;" text="Add Question" />
+      <Button layoutX="68.0" layoutY="109.0" mnemonicParsing="false" onAction="#Add_Student" style="-fx-background-color: #ff9900;" text="Add Student" />
+      <Button layoutX="439.0" layoutY="109.0" mnemonicParsing="false" onAction="#Student_Access" style="-fx-background-color: #ff9900;" text="Student Access" />
+      <Button layoutX="444.0" layoutY="141.0" mnemonicParsing="false" onAction="#Edit_Question" style="-fx-background-color: #ff9900;" text="Edit Question" />
+      <Button layoutX="59.0" layoutY="176.0" mnemonicParsing="false" onAction="#Edit_Information" style="-fx-background-color: #ff9900;" text="Edit Information" />
+      <Button layoutX="280.0" layoutY="335.0" mnemonicParsing="false" onAction="#Back_Clicked" style="-fx-background-color: #ff9900;" text="Back" />
+      <Button layoutX="452.0" layoutY="176.0" mnemonicParsing="false" onAction="#correction" style="-fx-background-color: #ff9900;" text="Correction" />
+      <Button layoutX="86.0" layoutY="213.0" mnemonicParsing="false" onAction="#graph" style="-fx-background-color: #ff9900;" text="Graph" />
+      <Button layoutX="466.0" layoutY="213.0" mnemonicParsing="false" onAction="#excel" style="-fx-background-color: #ff9900;" text="Excel" />
+      <Label layoutX="205.0" layoutY="49.0" text="Manager's Exam Page" textFill="#5d7c7c">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <ImageView layoutX="207.0" layoutY="93.0">
+         <image>
+            <Image url="@../Images/ExamHub%20logo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

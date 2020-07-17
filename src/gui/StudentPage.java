@@ -29,6 +29,15 @@ public class StudentPage {
     }
 
     @FXML
+    void exit(ActionEvent event) {
+        try {
+            MainClass.getMainClass().changescene("FirstPage.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     void My_Exams(ActionEvent event) {
         try {
             MainClass.getMainClass().changescene("MyExamsStudent.fxml");

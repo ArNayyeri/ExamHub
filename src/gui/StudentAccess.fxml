@@ -10,9 +10,9 @@
 
 <AnchorPane prefHeight="335.0" prefWidth="511.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.StudentAccess">
    <children>
-      <Button layoutX="379.0" layoutY="230.0" mnemonicParsing="false" onAction="#OK" style="-fx-background-color: #ff9900;" text="OK" />
+      <Button layoutX="239.0" layoutY="230.0" mnemonicParsing="false" onAction="#OK" style="-fx-background-color: #ff9900;" text="OK" />
       <RadioButton fx:id="accessradio" layoutX="185.0" layoutY="181.0" mnemonicParsing="false" text="Access" textFill="#7c7c7c" />
-      <Label fx:id="LabelStudent" alignment="CENTER" layoutX="96.0" layoutY="60.0" prefHeight="67.0" prefWidth="293.0" text="Student" textFill="#7c7c7c" />
+      <Label fx:id="LabelStudent" alignment="CENTER" layoutX="109.0" layoutY="59.0" prefHeight="67.0" prefWidth="293.0" text="Student" textFill="#7c7c7c" />
       <Button layoutX="98.0" layoutY="230.0" mnemonicParsing="false" onAction="#remove" style="-fx-background-color: #ff9900;" text="Remove" />
       <ImageView fitHeight="62.0" fitWidth="200.0" layoutX="16.0" layoutY="261.0">
          <image>
@@ -24,5 +24,6 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
+      <Button layoutX="389.0" layoutY="230.0" mnemonicParsing="false" onAction="#back" style="-fx-background-color: #ff9900;" text="Back" />
    </children>
 </AnchorPane>

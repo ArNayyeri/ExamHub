@@ -35,11 +35,18 @@ public class Chart {
 
     @FXML
     void back(ActionEvent event) {
-        try {
-            MainClass.getMainClass().changescene("FirstPage.fxml");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        if (MyExamsManager.examManager != null)
+            try {
+                MainClass.getMainClass().changescene("ManagerExam.fxml");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        else
+            try {
+                MainClass.getMainClass().changescene("ManagerPage.fxml");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
     }
 
     @FXML

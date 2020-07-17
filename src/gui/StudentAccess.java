@@ -59,6 +59,15 @@ public class StudentAccess {
     }
 
     @FXML
+    void back(ActionEvent event) {
+        try {
+            MainClass.getMainClass().changescene("ManagerExam.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
         // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
         assert accessradio != null : "fx:id=\"accessradio\" was not injected: check your FXML file 'StudentAccess.fxml'.";

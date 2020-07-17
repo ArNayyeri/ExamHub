@@ -26,7 +26,7 @@
             <Image url="@../Images/ExamHub logo 2.png" />
          </image>
       </ImageView>
-      <Button layoutX="250.0" layoutY="325.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #ff9900;" text="Sign Out">
+      <Button layoutX="250.0" layoutY="325.0" mnemonicParsing="false" onAction="#exit" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #ff9900;" text="Sign Out">
          <font>
             <Font name="Arial Bold" size="17.0" />
          </font>

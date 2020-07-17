@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 
 import back.ExamManager;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 
@@ -23,6 +24,16 @@ public class MyExamsManager {
 
     @FXML // fx:id="List"
     private ListView<String> List; // Value injected by FXMLLoader
+
+
+    @FXML
+    void back(ActionEvent event) {
+        try {
+            MainClass.getMainClass().changescene("ManagerPage.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
         // This method is called by the FXMLLoader when initialization is complete

@@ -13,7 +13,7 @@
       <RadioButton fx:id="good" layoutX="256.0" layoutY="151.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="61.0" text="Good" textFill="#7c7c7c" />
       <RadioButton fx:id="normal" layoutX="256.0" layoutY="192.0" mnemonicParsing="false" text="Normal" textFill="#7c7c7c" />
       <RadioButton fx:id="bad" layoutX="256.0" layoutY="233.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="61.0" text="Bad" textFill="#7c7c7c" />
-      <Button layoutX="270.0" layoutY="329.0" mnemonicParsing="false" onAction="#ok" style="-fx-background-color: #ff9900;" text="OK" />
+      <Button layoutX="270.0" layoutY="289.0" mnemonicParsing="false" onAction="#ok" style="-fx-background-color: #ff9900;" text="OK" />
       <ImageView layoutX="21.0" layoutY="108.0">
          <image>
             <Image url="@../Images/ExamHub logo.png" />
@@ -29,5 +29,6 @@
             <Font name="Arial Bold" size="24.0" />
          </font>
       </Label>
+      <Button layoutX="266.0" layoutY="338.0" mnemonicParsing="false" onAction="#back" style="-fx-background-color: #ff9900;" text="Back" />
    </children>
 </AnchorPane>

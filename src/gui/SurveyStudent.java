@@ -33,6 +33,15 @@ public class SurveyStudent {
     private RadioButton bad; // Value injected by FXMLLoader
 
     @FXML
+    void back(ActionEvent event) {
+        try {
+            MainClass.getMainClass().changescene("StudentExam.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     void ok(ActionEvent event) {
         if (good.isSelected())
             MyExamsStudent.examStudent.setSurvey(Survey.good);

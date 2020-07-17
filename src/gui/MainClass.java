@@ -5,6 +5,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -27,7 +29,7 @@ public class MainClass extends Application {
             o[0] = student;
             data.save("New Student", o);
         } else {
-            System.out.println("RIDIIIIIIIIIII:)");
+            System.out.println("Account Already Exist");
         }
 
     }
@@ -40,7 +42,7 @@ public class MainClass extends Application {
             o[0] = manager;
             data.save("New Manager", o);
         } else {
-            System.out.println("RIDIIIIIIIIIII:)");
+            System.out.println("Account Already Exist");
         }
     }
 
@@ -108,6 +110,12 @@ public class MainClass extends Application {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void playmusic(String path) {
+        Media media = new Media(getClass().getResource(path).toExternalForm());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.play();
     }
 
     public static MainClass getMainClass() {

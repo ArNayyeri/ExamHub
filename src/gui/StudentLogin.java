@@ -40,7 +40,7 @@ public class StudentLogin implements Serializable {
                 e.printStackTrace();
             }
         } else
-            System.out.println("RIDIIIIIIIIII");
+            System.out.println("Account Already Exist");
     }
 
     @FXML
