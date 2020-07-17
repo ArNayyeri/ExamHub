@@ -142,6 +142,15 @@ public class CreateExam {
     }
 
     @FXML
+    void back(ActionEvent event) {
+        try {
+            MainClass.getMainClass().changescene("ManagerPage.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     void Excel_Clicked(ActionEvent event) {
         if (ExcelRadio.isSelected())
             ChooseButton.setDisable(false);

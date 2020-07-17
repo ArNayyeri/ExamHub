@@ -13,7 +13,7 @@ import java.io.Serializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ManagerLogin implements Serializable {
+public class ManagerLogin{
     static Manager manager = null;
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
@@ -42,6 +42,15 @@ public class ManagerLogin implements Serializable {
             }
         else
             System.out.println("RIDIIIIIIIIII");
+    }
+
+    @FXML
+    void back(ActionEvent event) {
+        try {
+            MainClass.getMainClass().changescene("FirstPage.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

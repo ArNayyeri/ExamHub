@@ -2,16 +2,37 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ManagerPage">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ManagerPage">
    <children>
-      <Button layoutX="194.0" layoutY="240.0" mnemonicParsing="false" onAction="#Create_Exam" text="Create Exam" />
-      <Button layoutX="324.0" layoutY="240.0" mnemonicParsing="false" onAction="#My_Exams" text="My Exams" />
-      <Label layoutX="276.0" layoutY="49.0" text="Manager" />
-      <Button layoutX="212.0" layoutY="289.0" mnemonicParsing="false" onAction="#Chats" text="Chats" />
-      <Button layoutX="337.0" layoutY="289.0" mnemonicParsing="false" onAction="#Excel" text="Excel" />
-      <Button layoutX="213.0" layoutY="329.0" mnemonicParsing="false" onAction="#chart" text="Chart" />
-      <Button layoutX="341.0" layoutY="329.0" mnemonicParsing="false" onAction="#exit" text="Exit" />
+      <Label layoutX="171.0" layoutY="77.0" text="Manager Page" textFill="#7c7c7c">
+         <font>
+            <Font name="Arial Bold" size="38.0" />
+         </font></Label>
+      <Button layoutX="270.0" layoutY="318.0" mnemonicParsing="false" onAction="#exit" style="-fx-background-color: #ff9900;" text="Sign Out" />
+      <MenuButton layoutX="37.0" layoutY="175.0" mnemonicParsing="false" style="-fx-background-color: #ff9900;" text="Exam Section">
+        <items>
+          <MenuItem mnemonicParsing="false" onAction="#My_Exams" text="My Exams" />
+          <MenuItem mnemonicParsing="false" onAction="#Create_Exam" text="Create Exams" />
+            <MenuItem mnemonicParsing="false" onAction="#Chats" text="Chats" />
+        </items>
+      </MenuButton>
+      <MenuButton layoutX="452.0" layoutY="175.0" mnemonicParsing="false" style="-fx-background-color: #ff9900;" text="Exam Results">
+        <items>
+          <MenuItem mnemonicParsing="false" onAction="#Excel" text="Excel" />
+          <MenuItem mnemonicParsing="false" onAction="#chart" text="Chart" />
+        </items>
+      </MenuButton>
+      <ImageView fitHeight="62.0" fitWidth="200.0" layoutX="201.0" layoutY="14.0">
+         <image>
+            <Image url="@../Images/ExamHub logo 2.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

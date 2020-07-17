@@ -45,6 +45,15 @@ public class CorrectionDescriptive {
     }
 
     @FXML
+    void back(ActionEvent event) {
+        try {
+            MainClass.getMainClass().changescene("CorrectionListStudent.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     void show_answer(ActionEvent event) {
         Desktop desktop = Desktop.getDesktop();
         if (CorrectionListStudent.answerDescriptive.getFile() != null) {

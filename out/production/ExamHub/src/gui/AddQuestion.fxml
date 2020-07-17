@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AddQuestion">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AddQuestion">
    <children>
-      <Button layoutX="268.0" layoutY="135.0" mnemonicParsing="false" onAction="#Descriptive" text="Descriptive" />
-      <Button layoutX="287.0" layoutY="175.0" mnemonicParsing="false" onAction="#Test" text="Test" />
-      <Button layoutX="271.0" layoutY="215.0" mnemonicParsing="false" onAction="#True_False" text="True False" />
-      <Button layoutX="286.0" layoutY="298.0" mnemonicParsing="false" onAction="#back" text="Back" />
+      <Button layoutX="79.0" layoutY="188.0" mnemonicParsing="false" onAction="#Descriptive" style="-fx-background-color: #ff9900;" text="Descriptive" />
+      <Button layoutX="281.0" layoutY="188.0" mnemonicParsing="false" onAction="#Test" style="-fx-background-color: #ff9900;" text="Test" />
+      <Button layoutX="461.0" layoutY="188.0" mnemonicParsing="false" onAction="#True_False" style="-fx-background-color: #ff9900;" text="True False" />
+      <Button layoutX="280.0" layoutY="325.0" mnemonicParsing="false" onAction="#back" style="-fx-background-color: #ff9900;" text="Back" />
+      <ImageView fitHeight="62.0" fitWidth="200.0" layoutX="202.0" layoutY="21.0">
+         <image>
+            <Image url="@../Images/ExamHub logo 2.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="162.0" layoutY="92.0" text="Select your question type" textFill="#5d7c7c">
+         <font>
+            <Font name="Arial Bold" size="23.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

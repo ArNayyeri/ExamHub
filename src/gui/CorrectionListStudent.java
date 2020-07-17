@@ -55,7 +55,7 @@ public class CorrectionListStudent {
     @FXML
     void back(ActionEvent event) {
         try {
-            MainClass.getMainClass().changescene("ManagerExam.fxml");
+            MainClass.getMainClass().changescene("CorrectionList.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }

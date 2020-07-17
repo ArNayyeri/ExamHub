@@ -29,7 +29,18 @@ public class ChatList {
 
     @FXML
     void back(ActionEvent event) {
-
+        if (ManagerLogin.manager != null)
+            try {
+                MainClass.getMainClass().changescene("ManagerPage.fxml");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        else
+            try {
+                MainClass.getMainClass().changescene("StudentPage.fxml");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
     }
 
     @FXML

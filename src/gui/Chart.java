@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 
 import back.ExamManager;
 import back.ExamStudent;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
@@ -31,6 +32,15 @@ public class Chart {
 
     @FXML // fx:id="chart"
     private BarChart<?, ?> chart; // Value injected by FXMLLoader
+
+    @FXML
+    void back(ActionEvent event) {
+        try {
+            MainClass.getMainClass().changescene("FirstPage.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
         // This method is called by the FXMLLoader when initialization is complete

@@ -79,6 +79,15 @@ public class AddTrueFalse {
     }
 
     @FXML
+    void back(ActionEvent event) {
+        try {
+            MainClass.getMainClass().changescene("AddQuestion.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
         // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
         assert Text != null : "fx:id=\"Text\" was not injected: check your FXML file 'AddTrueFalse.fxml'.";

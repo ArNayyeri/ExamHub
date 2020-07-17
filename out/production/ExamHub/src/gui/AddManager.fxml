@@ -5,17 +5,23 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AddManager">
+<AnchorPane prefHeight="430.0" prefWidth="400.0" style="-fx-background-color: black; -fx-border-insets: 5; -fx-border-color: gray;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AddManager">
    <children>
-      <Button layoutX="274.0" layoutY="296.0" mnemonicParsing="false" onAction="#OK_Click" text="OK" />
-      <TextField fx:id="FirstnameText" layoutX="216.0" layoutY="70.0" />
-      <TextField fx:id="LastnameText" layoutX="216.0" layoutY="115.0" />
-      <TextField fx:id="UsernameText" layoutX="216.0" layoutY="160.0" />
-      <Label layoutX="105.0" layoutY="74.0" text="First Name" />
-      <Label layoutX="106.0" layoutY="119.0" text="Last Name" />
-      <Label layoutX="107.0" layoutY="164.0" text="Username" />
-      <Label layoutX="109.0" layoutY="204.0" text="Password" />
-      <PasswordField fx:id="PasswordText" layoutX="216.0" layoutY="200.0" />
+      <Label layoutX="58.0" layoutY="28.0" prefHeight="58.0" prefWidth="285.0" text="Sign up for free" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="38.0" />
+         </font>
+      </Label>
+      <TextField fx:id="FirstnameText" layoutX="14.0" layoutY="113.0" prefHeight="27.0" prefWidth="278.0" promptText="Firstname" style="-fx-border-color: gray; -fx-background-color: black; -fx-prompt-text-fill: #75755f;" />
+      <TextField fx:id="LastnameText" layoutX="14.0" layoutY="148.0" prefHeight="27.0" prefWidth="278.0" promptText="Lastname" style="-fx-border-color: gray; -fx-background-color: black; -fx-prompt-text-fill: #75755f;" />
+      <TextField fx:id="UsernameText" layoutX="14.0" layoutY="181.0" prefHeight="27.0" prefWidth="278.0" promptText="Username" style="-fx-border-color: gray; -fx-background-color: black; -fx-prompt-text-fill: #75755f;" />
+      <PasswordField fx:id="PasswordText" layoutX="14.0" layoutY="215.0" prefHeight="25.0" prefWidth="278.0" promptText="Password" style="-fx-prompt-text-fill: #75755f; -fx-border-color: gray; -fx-background-color: black;" />
+      <Button layoutX="14.0" layoutY="251.0" mnemonicParsing="false" onAction="#OK_Click" prefHeight="35.0" prefWidth="162.0" style="-fx-background-color: #ff9900;" text="Sign Up!">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font></Button>
+      <Button layoutX="68.0" layoutY="299.0" mnemonicParsing="false" onAction="#back" prefHeight="27.0" prefWidth="55.0" style="-fx-background-color: #ff9900;" text="Back" />
    </children>
 </AnchorPane>

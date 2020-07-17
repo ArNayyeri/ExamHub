@@ -27,7 +27,11 @@ public class CorrectionList {
 
     @FXML
     void back(ActionEvent event) {
-
+        try {
+            MainClass.getMainClass().changescene("ManagerExam.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

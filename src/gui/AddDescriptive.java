@@ -65,7 +65,15 @@ public class AddDescriptive {
                 e.printStackTrace();
             }
         }
+    }
 
+    @FXML
+    void back(ActionEvent event) {
+        try {
+            MainClass.getMainClass().changescene("AddQuestion.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

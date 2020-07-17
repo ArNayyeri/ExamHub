@@ -22,6 +22,6 @@
          <font>
             <Font name="Arial Bold" size="17.0" />
          </font></Button>
-      <Button layoutX="68.0" layoutY="299.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="55.0" style="-fx-background-color: #ff9900;" text="Back" />
+      <Button layoutX="68.0" layoutY="299.0" mnemonicParsing="false" onAction="#back" prefHeight="27.0" prefWidth="55.0" style="-fx-background-color: #ff9900;" text="Back" />
    </children>
 </AnchorPane>

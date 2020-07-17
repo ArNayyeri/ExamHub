@@ -4,16 +4,33 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AddDescriptive">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AddDescriptive">
    <children>
-      <TextArea fx:id="Text" layoutX="174.0" layoutY="56.0" prefHeight="144.0" prefWidth="254.0" />
-      <Label layoutX="289.0" layoutY="14.0" text="Text" />
-      <Button layoutX="273.0" layoutY="310.0" mnemonicParsing="false" onAction="#OK" text="OK" />
-      <TextField fx:id="Time" layoutX="100.0" layoutY="250.0" />
-      <Label layoutX="162.0" layoutY="219.0" text="Time" />
-      <TextField fx:id="point" layoutX="335.0" layoutY="250.0" />
-      <Label layoutX="396.0" layoutY="219.0" text="Point" />
+      <TextArea fx:id="Text" layoutX="174.0" layoutY="56.0" prefHeight="144.0" prefWidth="254.0" style="-fx-background-color: gray;" />
+      <Label layoutX="220.0" layoutY="14.0" text="Write your question" textFill="#5d7c7c">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font></Label>
+      <Button layoutX="273.0" layoutY="310.0" mnemonicParsing="false" onAction="#OK" style="-fx-background-color: #ff9900;" text="OK" />
+      <TextField fx:id="Time" layoutX="100.0" layoutY="250.0" style="-fx-background-color: gray;" />
+      <Label layoutX="154.0" layoutY="219.0" text="Time" textFill="#5d7c7c">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font></Label>
+      <TextField fx:id="point" layoutX="335.0" layoutY="250.0" style="-fx-background-color: gray;" />
+      <Label layoutX="388.0" layoutY="219.0" text="Point" textFill="#5d7c7c">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font></Label>
+      <ImageView fitHeight="62.0" fitWidth="200.0" layoutY="323.0">
+         <image>
+            <Image url="@../Images/ExamHub logo 2.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

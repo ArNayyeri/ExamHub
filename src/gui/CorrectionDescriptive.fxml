@@ -14,7 +14,7 @@
       <Button layoutX="257.0" layoutY="263.0" mnemonicParsing="false" onAction="#show_answer" style="-fx-background-color: #ff9900;" text="Show Answer" />
       <TextField fx:id="gradeText" layoutX="226.0" layoutY="215.0" style="-fx-background-color: gray;" />
       <Label layoutX="287.0" layoutY="192.0" text="Grade" textFill="#5d7c7c" />
-      <Button layoutX="280.0" layoutY="302.0" mnemonicParsing="false" onAction="#ok" style="-fx-background-color: #ff9900;" text="Back" />
+      <Button layoutX="280.0" layoutY="302.0" mnemonicParsing="false" onAction="#back" style="-fx-background-color: #ff9900;" text="Back" />
       <ImageView fitHeight="62.0" fitWidth="200.0" layoutX="15.0" layoutY="321.0">
          <image>
             <Image url="@../Images/ExamHub logo 2.png" />

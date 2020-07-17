@@ -47,6 +47,15 @@ public class AddTest {
     private TextField point;
 
     @FXML
+    void back(ActionEvent event) {
+        try {
+            MainClass.getMainClass().changescene("AddQuestion.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     void OK(ActionEvent event) {
         String x[] = new String[4];
         x[0] = option1.getText();

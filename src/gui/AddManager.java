@@ -44,6 +44,15 @@ public class AddManager implements Serializable {
     }
 
     @FXML
+    void back(ActionEvent event) {
+        try {
+            MainClass.getMainClass().changescene("FirstPage.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
         // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
         assert FirstnameText != null : "gui:id=\"FirstnameText\" was not injected: check your FXML file 'AddManager.fxml'.";
