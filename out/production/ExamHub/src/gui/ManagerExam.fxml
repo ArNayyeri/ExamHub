@@ -16,7 +16,7 @@
       <Button layoutX="59.0" layoutY="176.0" mnemonicParsing="false" onAction="#Edit_Information" style="-fx-background-color: #ff9900;" text="Edit Information" />
       <Button layoutX="280.0" layoutY="335.0" mnemonicParsing="false" onAction="#Back_Clicked" style="-fx-background-color: #ff9900;" text="Back" />
       <Button layoutX="452.0" layoutY="176.0" mnemonicParsing="false" onAction="#correction" style="-fx-background-color: #ff9900;" text="Correction" />
-      <Button layoutX="86.0" layoutY="213.0" mnemonicParsing="false" onAction="#graph" style="-fx-background-color: #ff9900;" text="Graph" />
+      <Button layoutX="87.0" layoutY="213.0" mnemonicParsing="false" onAction="#chart" style="-fx-background-color: #ff9900;" text="Chart" />
       <Button layoutX="466.0" layoutY="213.0" mnemonicParsing="false" onAction="#excel" style="-fx-background-color: #ff9900;" text="Excel" />
       <Label layoutX="205.0" layoutY="49.0" text="Manager's Exam Page" textFill="#5d7c7c">
          <font>

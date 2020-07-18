@@ -16,6 +16,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 public class ChatPage extends Thread {
+    public static Message message = null;
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
@@ -70,13 +71,17 @@ public class ChatPage extends Thread {
 
     @Override
     public void run() {
-        while (true){
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    refresh();
-                }
-            });
+        while (true) {
+            if (message != null) {
+                ChatList.chat.getMessages().add(message);
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        refresh();
+                    }
+                });
+                message = null;
+            }
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {

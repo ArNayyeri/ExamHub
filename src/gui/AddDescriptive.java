@@ -7,6 +7,7 @@ package gui;
 import back.QuestionDescriptive;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -29,6 +30,25 @@ public class AddDescriptive {
 
     @FXML
     private TextField point;
+
+    @FXML
+    private Button remove;
+
+    @FXML
+    void remove_Click(ActionEvent event) {
+        Object o[] = new Object[3];
+        o[0] = MyExamsManager.examManager.getManager();
+        o[1] = MyExamsManager.examManager.getManager().getExamManagers().indexOf(MyExamsManager.examManager);
+        o[2]=MyExamsManager.examManager.getQuestions().indexOf(EditQuestion.question);
+        MyExamsManager.examManager.getQuestions().remove(EditQuestion.question);
+        MainClass.getMainClass().data.save("Remove Question", o);
+        try {
+            MainClass.getMainClass().changescene("EditQuestion.fxml");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @FXML
     void OK(ActionEvent event) {
@@ -85,6 +105,7 @@ public class AddDescriptive {
             Text.setText(EditQuestion.question.getText());
             Time.setText(String.valueOf(EditQuestion.question.getTime()));
             point.setText(String.valueOf(EditQuestion.question.getPoint()));
-        }
+        } else
+            remove.setVisible(false);
     }
 }

@@ -31,8 +31,8 @@ public class StudentExam extends Thread {
     @FXML // fx:id="review"
     private Button review; // Value injected by FXMLLoader
 
-    @FXML // fx:id="survey"
-    private Button survey; // Value injected by FXMLLoader
+    @FXML // fx:id="poll"
+    private Button poll; // Value injected by FXMLLoader
 
     @FXML // fx:id="namelabel"
     private Label namelabel; // Value injected by FXMLLoader
@@ -128,10 +128,10 @@ public class StudentExam extends Thread {
     }
 
     @FXML
-    void survey_Click(ActionEvent event) {
+    void poll_Click(ActionEvent event) {
         stop();
         try {
-            MainClass.getMainClass().changescene("SurveyStudent.fxml");
+            MainClass.getMainClass().changescene("PollStudent.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -145,18 +145,18 @@ public class StudentExam extends Thread {
                 start.setDisable(true);
                 review.setDisable(true);
                 grade.setDisable(true);
-                survey.setDisable(true);
+                poll.setDisable(true);
             } else if (MyExamsStudent.examStudent.getStart().compareTo(date) <= 0 &&
                     MyExamsStudent.examStudent.getEnd().compareTo(date) > 0) {
                 start.setDisable(false);
                 review.setDisable(true);
                 grade.setDisable(true);
-                survey.setDisable(true);
+                poll.setDisable(true);
             } else {
                 start.setDisable(true);
                 review.setDisable(false);
                 grade.setDisable(false);
-                survey.setDisable(false);
+                poll.setDisable(false);
                 stop();
             }
             if (MyExamsStudent.examStudent.isFinish())
@@ -176,7 +176,7 @@ public class StudentExam extends Thread {
     void initialize() {
         assert start != null : "fx:id=\"start\" was not injected: check your FXML file 'StudentExam.fxml'.";
         assert review != null : "fx:id=\"review\" was not injected: check your FXML file 'StudentExam.fxml'.";
-        assert survey != null : "fx:id=\"survey\" was not injected: check your FXML file 'StudentExam.fxml'.";
+        assert poll != null : "fx:id=\"poll\" was not injected: check your FXML file 'StudentExam.fxml'.";
         assert namelabel != null : "fx:id=\"namelabel\" was not injected: check your FXML file 'StudentExam.fxml'.";
         assert start_timelabel != null : "fx:id=\"start_timelabel\" was not injected: check your FXML file 'StudentExam.fxml'.";
         assert endtime_label != null : "fx:id=\"endtime_label\" was not injected: check your FXML file 'StudentExam.fxml'.";
@@ -190,20 +190,20 @@ public class StudentExam extends Thread {
             start.setDisable(true);
             review.setDisable(true);
             grade.setDisable(true);
-            survey.setDisable(true);
+            poll.setDisable(true);
             start();
         } else if (MyExamsStudent.examStudent.getStart().compareTo(date) <= 0 &&
                 MyExamsStudent.examStudent.getEnd().compareTo(date) > 0) {
             start.setDisable(false);
             grade.setDisable(true);
             review.setDisable(true);
-            survey.setDisable(true);
+            poll.setDisable(true);
             start();
         } else {
             start.setDisable(true);
             review.setDisable(false);
             grade.setDisable(false);
-            survey.setDisable(false);
+            poll.setDisable(false);
         }
         if (MyExamsStudent.examStudent.isFinish())
             start.setDisable(true);
@@ -214,7 +214,7 @@ public class StudentExam extends Thread {
             start.setDisable(true);
             review.setDisable(true);
             grade.setDisable(true);
-            survey.setDisable(true);
+            poll.setDisable(true);
         }
     }
 }

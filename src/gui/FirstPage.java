@@ -56,6 +56,6 @@ public class FirstPage implements Serializable {
     @FXML
         // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
-        MainClass.getMainClass().playmusic("/Music/Music 1.mp3");
+        MainClass.getMainClass().playmusic("/Musics/Music 1.mp3");
     }
 }

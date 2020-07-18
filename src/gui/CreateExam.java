@@ -95,27 +95,16 @@ public class CreateExam {
         dateend.setMinutes(Integer.parseInt(EndM.getText()));
         dateend.setSeconds(Integer.parseInt(EndS.getText()));
         if (MyExamsManager.examManager != null) {
-            ExamManager examManager = new ExamManager(nameText.getText(), ManagerLogin.manager, datestart, dateend);
-            examManager.setConsecutive(consecutive.isSelected());
-            examManager.setRandom(random.isSelected());
-            examManager.setStudents(MyExamsManager.examManager.getStudents());
-            int x[] = new int[MyExamsManager.examManager.getStudents().size()];
-            for (int i = 0; i < MyExamsManager.examManager.getStudents().size(); i++) {
-                x[i] = MyExamsManager.examManager.getExamStudents().get(i).getStudent().
-                        getExamStudents().indexOf(MyExamsManager.examManager.getExamStudents().get(i));
-                ExamStudent examStudent = new ExamStudent(examManager,
-                        MyExamsManager.examManager.getExamStudents().get(i).getStudent());
-                examManager.getExamStudents().add(examStudent);
-                MyExamsManager.examManager.getExamStudents().get(i).getStudent().
-                        getExamStudents().set(x[i], examStudent);
-            }
-            examManager.setReview(review.isSelected());
-            ManagerLogin.manager.getExamManagers().set(
-                    ManagerLogin.manager.getExamManagers().indexOf(MyExamsManager.examManager), examManager);
+            MyExamsManager.examManager.setName(nameText.getText());
+            MyExamsManager.examManager.setStart(datestart);
+            MyExamsManager.examManager.setEnd(dateend);
+            MyExamsManager.examManager.setConsecutive(consecutive.isSelected());
+            MyExamsManager.examManager.setRandom(random.isSelected());
+            MyExamsManager.examManager.setReview(review.isSelected());
             Object o[] = new Object[3];
-            o[0] = examManager;
-            o[1] = ManagerLogin.manager.getExamManagers().indexOf(examManager);
-            o[2] = x;
+            o[0] = MyExamsManager.examManager.getManager();
+            o[1] = MyExamsManager.examManager.getManager().getExamManagers().indexOf(MyExamsManager.examManager);
+            o[2] = MyExamsManager.examManager;
             MainClass.getMainClass().data.save("Edit Exam", o);
         } else {
             if (file != null && ExcelRadio.isSelected()) {
@@ -134,11 +123,18 @@ public class CreateExam {
                 MainClass.getMainClass().data.save("Add Exam", o);
             }
         }
-        try {
-            MainClass.getMainClass().changescene("ManagerPage.fxml");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        if (MyExamsManager.examManager != null)
+            try {
+                MainClass.getMainClass().changescene("ManagerExam.fxml");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        else
+            try {
+                MainClass.getMainClass().changescene("ManagerPage.fxml");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
     }
 
     @FXML

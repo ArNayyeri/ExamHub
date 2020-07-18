@@ -17,6 +17,32 @@ public class ExamManager implements Serializable {
     private boolean random = false;
     private boolean review = true;
 
+    public void setChat(Chat chat) {
+        this.chat = chat;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+        for (ExamStudent examStudent : examStudents)
+            examStudent.setName(name);
+    }
+
+    public void setStart(Date start) {
+        this.start = start;
+        for (ExamStudent examStudent : examStudents)
+            examStudent.setStart(start);
+    }
+
+    public void setEnd(Date end) {
+        this.end = end;
+        for (ExamStudent examStudent : examStudents)
+            examStudent.setEnd(end);
+    }
+
+    public void setQuestions(ArrayList<Question> questions) {
+        this.questions = questions;
+    }
+
     public boolean isReview() {
         return review;
     }

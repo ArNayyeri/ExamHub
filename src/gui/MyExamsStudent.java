@@ -29,7 +29,7 @@ public class MyExamsStudent {
     @FXML
     void back(ActionEvent event) {
         try {
-            MainClass.getMainClass().changescene("FirstPage.fxml");
+            MainClass.getMainClass().changescene("StudentPage.fxml");
         } catch (Exception e) {
             e.printStackTrace();
         }

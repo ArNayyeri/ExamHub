@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SurveyStudent">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PollStudent">
    <children>
       <RadioButton fx:id="good" layoutX="256.0" layoutY="151.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="61.0" text="Good" textFill="#7c7c7c" />
       <RadioButton fx:id="normal" layoutX="256.0" layoutY="192.0" mnemonicParsing="false" text="Normal" textFill="#7c7c7c" />

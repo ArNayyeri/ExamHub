@@ -16,9 +16,33 @@ public class ExamStudent implements Serializable {
     private ArrayList<Answer> answers = new ArrayList<>();
     private boolean consecutive = true;
     private boolean access = true;
-    private Survey survey;
+    private Poll poll;
     private boolean random = false;
     private boolean finish = false;
+
+    public void setChat(Chat chat) {
+        this.chat = chat;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setStart(Date start) {
+        this.start = start;
+    }
+
+    public void setEnd(Date end) {
+        this.end = end;
+    }
+
+    public void setExamManager(ExamManager examManager) {
+        this.examManager = examManager;
+    }
+
+    public void setQuestions(ArrayList<Question> questions) {
+        this.questions = questions;
+    }
 
     public boolean isFinish() {
         return finish;
@@ -48,12 +72,12 @@ public class ExamStudent implements Serializable {
         this.random = random;
     }
 
-    public Survey getSurvey() {
-        return survey;
+    public Poll getPoll() {
+        return poll;
     }
 
-    public void setSurvey(Survey survey) {
-        this.survey = survey;
+    public void setPoll(Poll poll) {
+        this.poll = poll;
     }
 
     public boolean isAccess() {

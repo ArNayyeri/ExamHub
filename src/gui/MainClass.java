@@ -17,7 +17,7 @@ public class MainClass extends Application {
     public ArrayList<Manager> managers = new ArrayList<>();
     public ArrayList<Student> students = new ArrayList<>();
     static MainClass mainClass;
-    Save save;
+    public Save save;
     Scene scene;
     Stage stage;
 

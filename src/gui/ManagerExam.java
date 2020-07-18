@@ -91,7 +91,7 @@ public class ManagerExam {
     }
 
     @FXML
-    void graph(ActionEvent event) {
+    void chart(ActionEvent event) {
         try {
             MainClass.getMainClass().changescene("Chart.fxml");
         } catch (Exception e) {

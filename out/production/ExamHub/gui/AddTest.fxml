@@ -58,5 +58,6 @@
          </image>
       </ImageView>
       <Button layoutX="317.0" layoutY="363.0" mnemonicParsing="false" onAction="#back" style="-fx-background-color: #ff9900;" text="Back" />
+      <Button fx:id="remove" layoutX="24.0" layoutY="142.0" mnemonicParsing="false" onAction="#remove_Click" style="-fx-background-color: #ff9900;" text="Remove" />
    </children>
 </AnchorPane>

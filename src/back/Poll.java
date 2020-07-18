@@ -1,5 +1,5 @@
 package back;
 
-public enum Survey {
+public enum Poll {
     good, normal, bad;
 }

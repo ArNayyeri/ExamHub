@@ -1,6 +1,7 @@
-package gui;
+package back;
 
-import back.*;
+import gui.ChatPage;
+import gui.MainClass;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -75,6 +76,14 @@ public class Data extends Thread implements Serializable {
                             question = (Question) o.readObject();
                             examManager.getQuestions().set(j, question);
                             break;
+                        case "Remove Question":
+                            manager = (Manager) o.readObject();
+                            manager = (Manager) User.getUser(manager.getUsername());
+                            i = (int) o.readObject();
+                            examManager = manager.getExamManagers().get(i);
+                            j = (int) o.readObject();
+                            examManager.getQuestions().remove(j);
+                            break;
                         case "Edit Access":
                             student = (Student) o.readObject();
                             i = (int) o.readObject();
@@ -83,27 +92,24 @@ public class Data extends Thread implements Serializable {
                             student1.getExamStudents().get(i).setAccess(q);
                             break;
                         case "Edit Exam":
-                            examManager = (ExamManager) o.readObject();
+                            manager = (Manager) o.readObject();
+                            manager = (Manager) User.getUser(manager.getUsername());
                             i = (int) o.readObject();
-                            manager1 = (Manager) User.getUser(examManager.getManager().getUsername());
-                            manager1.getExamManagers().set(i, examManager);
-                            examManager.setManager(manager1);
-                            j = 0;
-                            int y[] = (int[]) o.readObject();
-                            for (ExamStudent examStudent2 : examManager.getExamStudents()) {
-                                student1 = (Student) User.getUser(examStudent2.getStudent().getUsername());
-                                student1.getExamStudents().set(y[j], examStudent2);
-                                examStudent2.setManager(manager1);
-                                examStudent2.setStudent(student1);
-                                j++;
-                            }
+                            examManager = manager.getExamManagers().get(i);
+                            examManager1 = (ExamManager) o.readObject();
+                            examManager.setStart(examManager1.getStart());
+                            examManager.setEnd(examManager1.getEnd());
+                            examManager.setName(examManager1.getName());
+                            examManager.setRandom(examManager1.isRandom());
+                            examManager.setReview(examManager1.isReview());
+                            examManager.setConsecutive(examManager1.isConsecutive());
                             break;
-                        case "Edit Survey":
+                        case "Edit Poll":
                             student = (Student) o.readObject();
                             student = (Student) User.getUser(student.getUsername());
                             i = (int) o.readObject();
                             examStudent = (ExamStudent) o.readObject();
-                            student.getExamStudents().get(i).setSurvey(examStudent.getSurvey());
+                            student.getExamStudents().get(i).setPoll(examStudent.getPoll());
                             break;
                         case "Answer Student":
                             student = (Student) o.readObject();
@@ -143,13 +149,15 @@ public class Data extends Thread implements Serializable {
                                 i = (int) o.readObject();
                                 examManager = manager.getExamManagers().get(i);
                                 Message message = (Message) o.readObject();
-                                examManager.getChat().getMessages().add(message);
+                                Message message1 = new Message(message.getText(), user, message.getDate());
+                                ChatPage.message = message1;
                             } else {
                                 student = (Student) User.getUser(user.getUsername());
                                 i = (int) o.readObject();
                                 examStudent = student.getExamStudents().get(i);
                                 Message message = (Message) o.readObject();
-                                examStudent.getChat().getMessages().add(message);
+                                Message message1 = new Message(message.getText(), user, message.getDate());
+                                ChatPage.message = message1;
                             }
                             break;
                         case "Remove Student Exam":
@@ -179,7 +187,7 @@ public class Data extends Thread implements Serializable {
         try {
             FileOutputStream f = new FileOutputStream(new File("Database.txt"));
             ObjectOutputStream o = new ObjectOutputStream(f);
-            o.writeObject(MainClass.mainClass.save);
+            o.writeObject(MainClass.getMainClass().save);
             o.close();
             f.close();
             File file = new File("NewSave.txt");

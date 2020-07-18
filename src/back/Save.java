@@ -1,4 +1,4 @@
-package gui;
+package back;
 
 import back.Manager;
 import back.Student;

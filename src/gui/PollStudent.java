@@ -1,5 +1,5 @@
 /**
- * Sample Skeleton for 'SurveyStudent.fxml' Controller Class
+ * Sample Skeleton for 'PollStudent.fxml' Controller Class
  */
 
 package gui;
@@ -7,13 +7,13 @@ package gui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import back.Survey;
+import back.Poll;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 
-public class SurveyStudent {
+public class PollStudent {
 
     ToggleGroup group = new ToggleGroup();
 
@@ -44,16 +44,16 @@ public class SurveyStudent {
     @FXML
     void ok(ActionEvent event) {
         if (good.isSelected())
-            MyExamsStudent.examStudent.setSurvey(Survey.good);
+            MyExamsStudent.examStudent.setPoll(Poll.good);
         if (normal.isSelected())
-            MyExamsStudent.examStudent.setSurvey(Survey.normal);
+            MyExamsStudent.examStudent.setPoll(Poll.normal);
         if (bad.isSelected())
-            MyExamsStudent.examStudent.setSurvey(Survey.bad);
+            MyExamsStudent.examStudent.setPoll(Poll.bad);
         Object o[] = new Object[3];
         o[0] = StudentLogin.student;
         o[1] = StudentLogin.student.getExamStudents().indexOf(MyExamsStudent.examStudent);
         o[2] = MyExamsStudent.examStudent;
-        MainClass.getMainClass().data.save("Edit Survey", o);
+        MainClass.getMainClass().data.save("Edit Poll", o);
         try {
             MainClass.getMainClass().changescene("StudentExam.fxml");
         } catch (Exception e) {
@@ -64,17 +64,17 @@ public class SurveyStudent {
     @FXML
         // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
-        assert good != null : "fx:id=\"good\" was not injected: check your FXML file 'SurveyStudent.fxml'.";
-        assert normal != null : "fx:id=\"normal\" was not injected: check your FXML file 'SurveyStudent.fxml'.";
-        assert bad != null : "fx:id=\"bad\" was not injected: check your FXML file 'SurveyStudent.fxml'.";
+        assert good != null : "fx:id=\"good\" was not injected: check your FXML file 'PollStudent.fxml'.";
+        assert normal != null : "fx:id=\"normal\" was not injected: check your FXML file 'PollStudent.fxml'.";
+        assert bad != null : "fx:id=\"bad\" was not injected: check your FXML file 'PollStudent.fxml'.";
         good.setToggleGroup(group);
         normal.setToggleGroup(group);
         bad.setToggleGroup(group);
-        if (MyExamsStudent.examStudent.getSurvey() == Survey.good)
+        if (MyExamsStudent.examStudent.getPoll() == Poll.good)
             good.setSelected(true);
-        if (MyExamsStudent.examStudent.getSurvey() == Survey.normal)
+        if (MyExamsStudent.examStudent.getPoll() == Poll.normal)
             normal.setSelected(true);
-        if (MyExamsStudent.examStudent.getSurvey() == Survey.bad)
+        if (MyExamsStudent.examStudent.getPoll() == Poll.bad)
             bad.setSelected(true);
     }
 }
