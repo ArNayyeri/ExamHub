@@ -72,9 +72,10 @@ public class Manager extends User implements Serializable {
         examManager.getStudents().add(student);
         examManager.getExamStudents().add(examStudent);
         student.getExamStudents().add(examStudent);
-        Object o[] = new Object[2];
-        o[0] = examManager;
-        o[1] = student;
+        Object o[] = new Object[3];
+        o[0] = examManager.getManager();
+        o[1] = examManager.getManager().getExamManagers().indexOf(examManager);
+        o[2] = student;
         MainClass.getMainClass().data.save("Add student Exam", o);
     }
 

@@ -44,34 +44,41 @@ public class Data extends Thread implements Serializable {
                             Manager manager1 = (Manager) User.getUser(examManager.getManager().getUsername());
                             manager1.getExamManagers().add(examManager);
                             examManager.setManager(manager1);
+                            Student student1 = null;
                             for (ExamStudent examStudent : examManager.getExamStudents()) {
-                                if (User.getUser(examStudent.getStudent().getUsername()) != null) {
-                                    Student student1 = (Student) User.getUser(examStudent.getStudent().getUsername());
-                                    student1.getExamStudents().add(examStudent);
-                                    examStudent.setManager(manager1);
-                                    examStudent.setStudent(student1);
-                                } else {
+                                if (User.getUser(examStudent.getStudent().getUsername()) != null)
+                                    student1 = (Student) User.getUser(examStudent.getStudent().getUsername());
+                                else {
                                     User.getUsers().add(examStudent.getStudent());
                                     MainClass.getMainClass().students.add(examStudent.getStudent());
+                                    examStudent.getStudent().getExamStudents().clear();
                                 }
+                                student1.getExamStudents().add(examStudent);
+                                examStudent.setManager(manager1);
+                                examStudent.setStudent(student1);
                             }
                             break;
                         case "Add student Exam":
-                            ExamManager examManager1 = (ExamManager) o.readObject();
-                            Student student1 = (Student) o.readObject();
+                            manager = (Manager) o.readObject();
+                            manager = (Manager) User.getUser(manager.getUsername());
+                            int i = (int) o.readObject();
+                            ExamManager examManager1 = manager.getExamManagers().get(i);
+                            student1 = (Student) o.readObject();
+                            ExamStudent examStudent;
                             if (User.getUser(student1.getUsername()) == null) {
                                 MainClass.getMainClass().students.add(student1);
                                 User.getUsers().add(student1);
+                                student1.getExamStudents().clear();
                             } else
                                 student1 = (Student) User.getUser(student1.getUsername());
-                            ExamStudent examStudent = new ExamStudent(examManager1, student1);
+                            examStudent = new ExamStudent(examManager1, student1);
                             examManager1.getStudents().add(student1);
                             examManager1.getExamStudents().add(examStudent);
                             student1.getExamStudents().add(examStudent);
                             break;
                         case "New Add Question":
                             Manager manager2 = (Manager) o.readObject();
-                            int i = (int) o.readObject();
+                            i = (int) o.readObject();
                             manager = (Manager) User.getUser(manager2.getUsername());
                             examManager = manager.getExamManagers().get(i);
                             Question question = (Question) o.readObject();
