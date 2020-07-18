@@ -2,7 +2,7 @@ package gui; /**
  * Sample Skeleton for 'ManagerLogin.fxml' Controller Class
  */
 
-import back.Student;
+import back.student.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

@@ -1,6 +1,8 @@
 package gui;
 
 import back.*;
+import back.manager.Manager;
+import back.student.Student;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -27,7 +29,7 @@ public class MainClass extends Application {
             students.add(student);
             Object o[] = new Object[1];
             o[0] = student;
-            data.save("New Student", o);
+            data.save("New student", o);
         } else {
             System.out.println("Account Already Exist");
         }
@@ -40,7 +42,7 @@ public class MainClass extends Application {
             managers.add(manager);
             Object o[] = new Object[1];
             o[0] = manager;
-            data.save("New Manager", o);
+            data.save("New manager", o);
         } else {
             System.out.println("Account Already Exist");
         }

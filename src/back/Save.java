@@ -1,7 +1,7 @@
 package back;
 
-import back.Manager;
-import back.Student;
+import back.manager.Manager;
+import back.student.Student;
 
 import java.io.Serializable;
 import java.util.ArrayList;

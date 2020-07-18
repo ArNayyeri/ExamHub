@@ -7,8 +7,7 @@ package gui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import back.QuestionDescriptive;
-import back.QuestionTest;
+import back.question.QuestionTest;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

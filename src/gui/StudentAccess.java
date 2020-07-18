@@ -50,7 +50,7 @@ public class StudentAccess {
         MyExamsManager.examManager.getExamStudents().remove(StudentExamEdit.examStudent);
         MyExamsManager.examManager.getStudents().remove(StudentExamEdit.examStudent.getStudent());
         StudentExamEdit.examStudent.getStudent().getExamStudents().remove(StudentExamEdit.examStudent);
-        MainClass.getMainClass().data.save("Remove Student Exam", o);
+        MainClass.getMainClass().data.save("Remove student Exam", o);
         try {
             MainClass.getMainClass().changescene("StudentExamEdit.fxml");
         } catch (Exception e) {

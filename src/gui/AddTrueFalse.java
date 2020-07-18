@@ -7,7 +7,7 @@ package gui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import back.QuestionTrueFalse;
+import back.question.QuestionTrueFalse;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;

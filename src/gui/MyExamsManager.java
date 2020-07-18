@@ -7,7 +7,7 @@ package gui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import back.ExamManager;
+import back.manager.ExamManager;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

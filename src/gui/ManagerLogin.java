@@ -2,14 +2,13 @@ package gui; /**
  * Sample Skeleton for 'ManagerLogin.fxml' Controller Class
  */
 
-import back.Manager;
+import back.manager.Manager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-import java.io.Serializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 

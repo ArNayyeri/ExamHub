@@ -8,7 +8,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import back.*;
-import back.Chat;
+import back.chat.Chat;
+import back.manager.ExamManager;
+import back.student.ExamStudent;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

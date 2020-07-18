@@ -7,9 +7,6 @@ package gui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import back.ExamManager;
-import back.Student;
-import back.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;

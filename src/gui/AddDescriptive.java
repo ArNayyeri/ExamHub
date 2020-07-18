@@ -4,7 +4,7 @@
 
 package gui;
 
-import back.QuestionDescriptive;
+import back.question.QuestionDescriptive;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

@@ -1,5 +1,15 @@
 package back;
 
+import back.answer.Answer;
+import back.answer.AnswerDescriptive;
+import back.answer.AnswerTest;
+import back.answer.AnswerTrueFalse;
+import back.chat.Message;
+import back.manager.ExamManager;
+import back.manager.Manager;
+import back.question.Question;
+import back.student.ExamStudent;
+import back.student.Student;
 import gui.ChatPage;
 import gui.MainClass;
 
@@ -19,12 +29,12 @@ public class Data extends Thread implements Serializable {
                     ObjectInputStream o = new ObjectInputStream(f);
                     String x = (String) o.readObject();
                     switch (x) {
-                        case "New Student":
+                        case "New student":
                             Student student = (Student) o.readObject();
                             MainClass.getMainClass().students.add(student);
                             User.getUsers().add(student);
                             break;
-                        case "New Manager":
+                        case "New manager":
                             Manager manager = (Manager) o.readObject();
                             MainClass.getMainClass().managers.add(manager);
                             User.getUsers().add(manager);
@@ -46,7 +56,7 @@ public class Data extends Thread implements Serializable {
                                 }
                             }
                             break;
-                        case "Add Student Exam":
+                        case "Add student Exam":
                             ExamManager examManager1 = (ExamManager) o.readObject();
                             Student student1 = (Student) o.readObject();
                             if (User.getUser(student1.getUsername()) == null) {
@@ -111,7 +121,7 @@ public class Data extends Thread implements Serializable {
                             examStudent = (ExamStudent) o.readObject();
                             student.getExamStudents().get(i).setPoll(examStudent.getPoll());
                             break;
-                        case "Answer Student":
+                        case "Answer student":
                             student = (Student) o.readObject();
                             student = (Student) User.getUser(student.getUsername());
                             i = (int) o.readObject();
@@ -160,7 +170,7 @@ public class Data extends Thread implements Serializable {
                                 ChatPage.message = message1;
                             }
                             break;
-                        case "Remove Student Exam":
+                        case "Remove student Exam":
                             manager = (Manager) o.readObject();
                             manager = (Manager) User.getUser(manager.getUsername());
                             i = (int) o.readObject();

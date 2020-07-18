@@ -7,7 +7,12 @@ package gui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import back.*;
+import back.answer.Answer;
+import back.answer.AnswerDescriptive;
+import back.answer.AnswerTest;
+import back.answer.AnswerTrueFalse;
+import back.question.QuestionTest;
+import back.question.QuestionTrueFalse;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

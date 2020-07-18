@@ -7,8 +7,8 @@ package gui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import back.ExamManager;
-import back.ExamStudent;
+import back.manager.ExamManager;
+import back.student.ExamStudent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
